@@ -1,5 +1,15 @@
 
-usePlugin 'groovy'
+buildscript {
+  repositories {
+    mavenRepo urls: "http://gradle.artifactoryonline.com/gradle/plugins"
+  }
+  dependencies {
+    classpath "org.gradle.plugins:gradle-idea-plugin:0.2"
+  }
+}
+
+apply plugin: "groovy"
+apply plugin: "org.gradle.idea"
 
 repositories {
   mavenCentral name: "itextpdf", urls: "http://maven.itextpdf.com/"
@@ -12,5 +22,4 @@ dependencies {
   testCompile group: "junit", name: "junit", version: "4.8.1"
   testCompile group: "net.sf.jpdfunit", name: "jpdfunit", version: "1.1"
 }
-
 

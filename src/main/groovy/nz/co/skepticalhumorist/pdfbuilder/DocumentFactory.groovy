@@ -2,6 +2,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 
 import com.itextpdf.text.Document
 import com.itextpdf.text.pdf.PdfWriter
+import com.itextpdf.text.pdf.PdfPTable
 
 class DocumentFactory extends AbstractFactory {
 
@@ -21,11 +22,13 @@ class DocumentFactory extends AbstractFactory {
 
   def void setChild(FactoryBuilderSupport builder, Object parent, Object child) {
     println("setChild($builder, $parent, $child)")
-    parent.add(child)
+    if (child.class != PdfPTable) {
+      parent.add(child)
+    }
   }
 
   def void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
-    println("onNodeCompleted($builder, $parent, $node)")
+    println("DocumentFactory.onNodeCompleted($builder, $parent, $node)")
     if (parent == null) {
       document.close()
     }

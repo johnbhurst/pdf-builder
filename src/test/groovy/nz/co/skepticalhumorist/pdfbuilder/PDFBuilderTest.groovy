@@ -12,6 +12,10 @@ class PDFBuilderTest {
       def document = new PDFBuilder(outputStream: outputStream).document() {
         image(filename: "images/LowagieBook.png")
         paragraph(string: "First paragraph")
+        table(numColumns: 2) {
+          cell(string: "cell 1,1"); cell(string: "cell 1,2")
+          cell(string: "cell 2,1"); cell(string: "cell 2,2")
+        } 
 //        paragraph(string: "Invoice", font: new Font(Font.HELVETICA, 16, Font.BOLD, Color.BLACK))
       }
       assert document.class == Document

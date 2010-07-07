@@ -1,6 +1,7 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import com.itextpdf.text.Document
+import com.itextpdf.text.pdf.PdfWriter
 
 class DocumentFactory extends AbstractFactory {
 
@@ -13,7 +14,22 @@ class DocumentFactory extends AbstractFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     document = new Document()
+    PdfWriter.getInstance(document, builder.outputStream)
+    document.open()
     return document
   }
+
+  def void setChild(FactoryBuilderSupport builder, Object parent, Object child) {
+    println("setChild($builder, $parent, $child)")
+    parent.add(child)
+  }
+
+  def void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
+    println("onNodeCompleted($builder, $parent, $node)")
+    if (parent == null) {
+      document.close()
+    }
+  }
+
 }
 

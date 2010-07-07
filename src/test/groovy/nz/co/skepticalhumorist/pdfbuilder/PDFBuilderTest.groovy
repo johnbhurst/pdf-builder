@@ -11,6 +11,7 @@ class PDFBuilderTest {
     new File("tryme.pdf").withOutputStream {outputStream ->
       def document = new PDFBuilder(outputStream: outputStream).document() {
         image(filename: "images/LowagieBook.png")
+        paragraph(string: "First paragraph")
 //        paragraph(string: "Invoice", font: new Font(Font.HELVETICA, 16, Font.BOLD, Color.BLACK))
       }
       assert document.class == Document

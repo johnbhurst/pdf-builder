@@ -10,7 +10,7 @@ class CellFactory extends AbstractFactory {
       String string = attributes.remove("string")
       return new PdfPCell(new Paragraph(string))
     }
-    return null
+    return new PdfPCell(new Paragraph(value))
   }
 
 }

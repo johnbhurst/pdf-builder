@@ -9,7 +9,7 @@ class ParagraphFactory extends AbstractFactory {
       String string = attributes.remove("string")
       return new Paragraph(string)
     }
-    return null
+    return new Paragraph(value)
   }
 
 }

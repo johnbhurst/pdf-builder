@@ -14,7 +14,7 @@ class PDFBuilderTest {
       image(filename: "images/LowagieBook.png")
       paragraph(string: "First paragraph")
       paragraph("Second paragraph", font: headingFont)
-      table(numColumns: 2) {
+      table(numColumns: 2, spacingBefore: 15, spacingAfter: 30) {
         cell(string: "cell 1,1"); cell(string: "cell 1,2")
         cell("cell 2,1"); cell("cell 2,2", font: boldFont)
       }

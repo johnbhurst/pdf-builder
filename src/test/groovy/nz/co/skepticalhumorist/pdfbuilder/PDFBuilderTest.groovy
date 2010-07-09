@@ -14,9 +14,14 @@ class PDFBuilderTest {
       image(filename: "images/LowagieBook.png")
       paragraph(string: "First paragraph")
       paragraph("Second paragraph", font: headingFont)
-      table(numColumns: 2, spacingBefore: 15, spacingAfter: 30) {
+      table(2, spacingBefore: 15, spacingAfter: 30) {
         cell(string: "cell 1,1"); cell(string: "cell 1,2")
         cell("cell 2,1"); cell("cell 2,2", font: boldFont)
+      }
+      table([0.4f, 0.2f, 0.4f] as float[], spacingAfter: 30) {
+        cell("wider cell") ; cell("10") ; cell("wider cell")
+        cell("more cells") ; cell("20") ; cell("more and more")
+        cell("finally ...") ; cell("30") ; cell("the end")
       }
     }
     assert document.class == Document

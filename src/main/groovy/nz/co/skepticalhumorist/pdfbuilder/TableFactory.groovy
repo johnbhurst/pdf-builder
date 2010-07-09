@@ -5,14 +5,7 @@ import com.itextpdf.text.pdf.PdfPTable
 class TableFactory extends AbstractFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-    PdfPTable result = null
-    if (attributes.containsKey("numColumns")) {
-      int numColumns = attributes.remove("numColumns")
-      result = new PdfPTable(numColumns)
-    }
-    else {
-      result = new PdfPTable()
-    }
+    PdfPTable result = new PdfPTable(value)
     attributes.each {key, val ->
       result[key] = val
     }

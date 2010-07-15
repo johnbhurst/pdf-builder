@@ -27,7 +27,7 @@ class PDFBuilderTest {
       paragraph(leading: 10.0f, string: "Leading: 10")
       paragraph(leading: 15.0f, string: "Leading: 15", font: BOLD_FONT)
       table([0.5f, 0.5f] as float[]) {
-        cell(paragraph("one", font: BOLD_FONT)) ; cell(paragraph("two"))
+        cell(paragraph(string: "one", font: BOLD_FONT)) ; cell(paragraph("two"))
       }
     }
     assert document.class == Document

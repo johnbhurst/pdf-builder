@@ -10,6 +10,7 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("paragraph", new ParagraphFactory())
     registerFactory("table", new TableFactory())
     registerFactory("cell", new CellFactory())
+    registerFactory("newPage", new NewPageFactory())
   }
 
   PDFBuilder build() {

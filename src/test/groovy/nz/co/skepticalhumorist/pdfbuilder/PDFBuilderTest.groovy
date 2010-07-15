@@ -29,6 +29,10 @@ class PDFBuilderTest {
       table([0.5f, 0.5f] as float[]) {
         cell(paragraph(string: "one", font: BOLD_FONT)) ; cell(paragraph("two"))
       }
+      newPage()
+      paragraph("Next page (1)...")
+      newPage()
+      paragraph("Next page (2)...")
     }
     assert document.class == Document
   }

@@ -29,7 +29,10 @@ class DocumentFactory extends AbstractFactory {
 
   def void setChild(FactoryBuilderSupport builder, Object parent, Object child) {
     println("DocumentFactory.setChild($builder, $parent, $child)")
-    if (child.class != PdfPTable) {
+    if (child instanceof DocumentCommand) {
+      child.applyTo(document)
+    }
+    else if (child.class != PdfPTable) {
       parent.add(child)
     }
   }

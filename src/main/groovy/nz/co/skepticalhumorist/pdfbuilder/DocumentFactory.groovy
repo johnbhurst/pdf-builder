@@ -20,8 +20,15 @@ class DocumentFactory extends AbstractFactory {
     return document
   }
 
+  def void setParent(FactoryBuilderSupport builder, Object parent, Object child) {
+    println("DocumentFactory.setParent($builder, $parent, $child)")
+//    if (child.class != PdfTable) {
+//      parent.add(child)
+//    }
+  }
+
   def void setChild(FactoryBuilderSupport builder, Object parent, Object child) {
-    println("setChild($builder, $parent, $child)")
+    println("DocumentFactory.setChild($builder, $parent, $child)")
     if (child.class != PdfPTable) {
       parent.add(child)
     }
@@ -35,4 +42,3 @@ class DocumentFactory extends AbstractFactory {
   }
 
 }
-

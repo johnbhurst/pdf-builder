@@ -11,9 +11,10 @@ class JPdfUnitTest {
     new PDFBuilder(outputStream: file.newOutputStream()).document() {
       paragraph("One paragraph")
     }
-    DocumentTester tester = new DocumentTester("SimpleTest.pdf")
-    tester.assertContentContainsText("One", TextSearchType.CONTAINS)
-    tester.assertPageCountEquals 1
+    new DocumentTester(file.newInputStream()).with {
+      assertContentContainsText("One", TextSearchType.CONTAINS)
+      assertPageCountEquals 1
+    }
     file.delete()
   }
 }

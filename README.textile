@@ -1,0 +1,20 @@
+h1. pdf-builder
+
+This is a Groovy PDF builder that uses the "iText library":http://itextpdf.com to generate PDF documents.
+
+The project is inspired by the "groovy-pdf project":http://code.google.com/p/groovy-pdf/, but contains all new code.
+
+Currently the code is under development, and still in a very much alpha state.
+However, we are already using it for some projects under development at a client.
+
+We hope to follow up soon with:
+  * Documentation
+  * Samples
+  * More features
+  * More tests
+  * Maven artifacts
+  * ... get rid of the debugging println()s ... ;-)
+
+
+
+

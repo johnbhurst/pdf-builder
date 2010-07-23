@@ -6,12 +6,7 @@ import com.itextpdf.text.pdf.PdfPTable
 
 class DocumentFactory extends AbstractFactory {
 
-  PDFBuilder builder
   Document document
-
-  DocumentFactory(builder) {
-    this.builder = builder;
-  }
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     document = new Document()

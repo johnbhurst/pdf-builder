@@ -24,8 +24,8 @@ class ImageTest {
       // getInstance(String)
       // getInstance(URL)
       image("images/LowagieBook.png")
-      image(filename: "images/LowagieBook.png", percent: 25f)
-      image(url: new URL("http://www.itextpdf.com/img/1t3xt.gif"), percentX: 50f, percentY: 100f)
+      image(filename: "images/LowagieBook.png", init: {scalePercent(25f)})
+      image(url: new URL("http://www.itextpdf.com/img/1t3xt.gif"), init: {scalePercent(50f, 100f)})
     }
   }
 }

@@ -116,15 +116,20 @@ class ImageFactory extends AbstractFactory {
     else {
       result = Image.getInstance(value)
     }
-    if (attributes.containsKey("percent")) {
-      float percent = attributes.remove("percent")
-      result.scalePercent(percent)
+    if (attributes.containsKey("init")) {
+      Closure init = attributes.remove("init")
+      init.delegate = result
+      init()
     }
-    if (attributes.containsKey("percentX") && attributes.containsKey("percentY")) {
-      float percentX = attributes.remove("percentX")
-      float percentY = attributes.remove("percentY")
-      result.scalePercent(percentX, percentY)
-    }
+//    if (attributes.containsKey("percent")) {
+//      float percent = attributes.remove("percent")
+//      result.scalePercent(percent)
+//    }
+//    if (attributes.containsKey("percentX") && attributes.containsKey("percentY")) {
+//      float percentX = attributes.remove("percentX")
+//      float percentY = attributes.remove("percentY")
+//      result.scalePercent(percentX, percentY)
+//    }
     attributes.each {key, val ->
       result[key] = val
     }

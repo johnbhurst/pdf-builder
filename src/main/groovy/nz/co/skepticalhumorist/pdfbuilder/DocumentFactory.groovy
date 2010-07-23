@@ -7,10 +7,19 @@ import com.itextpdf.text.pdf.PdfPTable
 class DocumentFactory extends AbstractFactory {
 
   Document document
+  PdfWriter writer
+  ClosurePdfPageEvent pageEvent = new ClosurePdfPageEvent()
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     document = new Document()
-    PdfWriter.getInstance(document, builder.outputStream)
+    def keys = new ArrayList(attributes.keySet())
+    keys.each {key ->
+      if (pageEvent.hasProperty(key)) {
+        pageEvent[key] = attributes.remove(key)
+      }
+    }
+    writer = PdfWriter.getInstance(document, builder.outputStream)
+    writer.setPageEvent(pageEvent)
     document.open()
     return document
   }

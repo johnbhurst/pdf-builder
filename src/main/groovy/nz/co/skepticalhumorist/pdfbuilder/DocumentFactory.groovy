@@ -12,9 +12,8 @@ class DocumentFactory extends AbstractFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     document = new Document()
-    def keys = new ArrayList(attributes.keySet())
-    keys.each {key ->
-      if (pageEvent.hasProperty(key)) {
+    pageEvent.properties.each {key, val ->
+      if (attributes.containsKey(key)) {
         pageEvent[key] = attributes.remove(key)
       }
     }

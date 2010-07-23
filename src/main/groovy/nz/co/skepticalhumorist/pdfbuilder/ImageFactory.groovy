@@ -107,7 +107,7 @@ class ImageFactory extends AbstractFactory {
     }
     else if (attributes.containsKey("filename")) {
       String filename = attributes.remove("filename")
-      return Image.getInstance(filename)
+      result = Image.getInstance(filename)
     }
     else if (attributes.containsKey("url")) {
       URL url = attributes.remove("url")

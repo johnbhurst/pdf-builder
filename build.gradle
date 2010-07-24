@@ -11,9 +11,25 @@ buildscript {
 apply plugin: "groovy"
 apply plugin: "org.gradle.idea"
 
+group = "nz.co.skepticalhumorist"
+version = "00.00.02"
+status = 'release'
+
 repositories {
   mavenCentral name: "itextpdf", urls: "http://maven.itextpdf.com/"
   mavenCentral name: "jpdfunit-repo", urls: "http://jpdfunit.sourceforge.net/repo"
+}
+
+uploadDefault {
+  uploadDescriptor = true
+  repositories {
+    add(new org.apache.ivy.plugins.resolver.FileSystemResolver()) {
+      name = 'repo'
+      addIvyPattern "$projectDir/repo/[organisation]/[module]/[revision]/ivy.xml"
+      addArtifactPattern "$projectDir/repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"
+      checkmodified = true
+    }
+  }
 }
 
 dependencies {

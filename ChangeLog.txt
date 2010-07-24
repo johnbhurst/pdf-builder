@@ -4,6 +4,7 @@ REL-00.00.02 2010-07-23
   - Improved images support.
   - Added PdfPageEvent support via event closures.
   - Added same JPdfUnit tests.
+  - Added Ivy upload/publish support.
 
 REL-00.00.00 2010-07-16
 REL-00.00.01 2010-07-16

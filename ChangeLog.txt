@@ -1,4 +1,12 @@
 
+REL-00.00.04 2010-07-31
+
+  - Gradle publishes to Artifactory.
+
+REL-00.00.03 2010-07-27
+
+  - Removed debug printlns.
+
 REL-00.00.02 2010-07-23
 
   - Improved images support.

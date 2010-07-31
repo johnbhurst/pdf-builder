@@ -15,6 +15,16 @@ We hope to follow up soon with:
   * Maven artifacts
   * ... get rid of the debugging println()s ... ;-)
 
+Here's a Hello World from pdf-builder:
+<pre>
+<code>
+import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
+
+new PDFBuilder(outputStream: new File("Hello.pdf").newOutputStream()).document() {
+  paragraph("Hello from iText.")
+}
+</code>
+</pre>
 
 
 

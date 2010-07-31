@@ -13,7 +13,6 @@ We hope to follow up soon with:
   * More features
   * More tests
   * Maven artifacts
-  * ... get rid of the debugging println()s ... ;-)
 
 Here's a Hello World from pdf-builder:
 <pre>

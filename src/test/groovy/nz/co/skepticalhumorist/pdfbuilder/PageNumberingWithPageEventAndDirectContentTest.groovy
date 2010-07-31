@@ -17,7 +17,7 @@ class PageNumberingWithPageEventAndDirectContentTest {
         writer.withDirectContent {PdfContentByte cb ->
           cb.beginText()
           cb.setFontAndSize(font, 12)
-          cb.setTextMatrix(document.left() as float, document.bottom()- 20 as float)
+          cb.setTextMatrix(document.left() as float, document.bottom() - 20 as float)
           cb.showText("Page " + writer.getPageNumber())
           cb.endText()
         }

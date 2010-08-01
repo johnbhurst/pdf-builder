@@ -2,11 +2,11 @@ package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
 
-class PageEventTest {
+class PageEventTest extends AbstractPDFBuilderTestCase {
 
   @Test
   void testOk() {
-    File file = new File("PageEventTest.pdf")
+    File file = new File(tmpDir, "PageEventTest.pdf")
     new PDFBuilder(outputStream: file.newOutputStream()).document(
       onChapter: {writer, document, paragraphPosition, title ->
         println("onChapter($writer, $document, $paragraphPosition, $title)")

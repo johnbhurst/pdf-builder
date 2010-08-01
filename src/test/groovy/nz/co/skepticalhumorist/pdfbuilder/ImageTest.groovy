@@ -2,11 +2,11 @@ package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
 
-class ImageTest {
+class ImageTest extends AbstractPDFBuilderTestCase {
 
   @Test
   void testOk() {
-    File file = new File("ImageTest.pdf")
+    File file = new File(tmpDir, "ImageTest.pdf")
     new PDFBuilder(outputStream: file.newOutputStream()).document() {
       // getInstance(byte[])
       // getInstance(Image)

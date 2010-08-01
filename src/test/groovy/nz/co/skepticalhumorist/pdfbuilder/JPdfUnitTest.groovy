@@ -4,10 +4,10 @@ import org.junit.Test
 import de.oio.jpdfunit.DocumentTester
 import de.oio.jpdfunit.document.util.TextSearchType
 
-class JPdfUnitTest {
+class JPdfUnitTest extends AbstractPDFBuilderTestCase {
   @Test
   void testOk() {
-    File file = new File("SimpleTest.pdf")
+    File file = new File(tmpDir, "SimpleTest.pdf")
     new PDFBuilder(outputStream: file.newOutputStream()).document() {
       paragraph("One paragraph")
     }

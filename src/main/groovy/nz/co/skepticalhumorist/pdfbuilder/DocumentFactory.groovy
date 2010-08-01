@@ -3,6 +3,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 import com.itextpdf.text.Document
 import com.itextpdf.text.pdf.PdfWriter
 import com.itextpdf.text.pdf.PdfPTable
+import com.itextpdf.text.pdf.PdfPageLabels
 
 class DocumentFactory extends AbstractFactory {
 
@@ -20,6 +21,16 @@ class DocumentFactory extends AbstractFactory {
     writer = PdfWriter.getInstance(document, builder.outputStream)
     writer.setPageEvent(pageEvent)
     document.open()
+    if (attributes.containsKey("initWriter")) {
+      Closure initWriter = attributes.remove("initWriter")
+      initWriter.delegate = writer
+      initWriter()
+    }
+    if (attributes.containsKey("initDocument")) {
+      Closure initDocument = attributes.remove("initDocument")
+      initDocument.delegate = document
+      initDocument()
+    }
     return document
   }
 

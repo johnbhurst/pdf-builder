@@ -17,7 +17,7 @@ apply plugin: "org.gradle.idea"
 
 group = "nz.co.skepticalhumorist"
 version = "00.00.05"
-status = 'release'
+status = 'snapshot'
 
 repositories {
   mavenCentral name: "itextpdf", urls: "http://maven.itextpdf.com/"
@@ -30,5 +30,17 @@ dependencies {
   testCompile group: "junit", name: "junit", version: "4.8.1"
   testCompile group: "net.sf.jpdfunit", name: "jpdfunit", version: "1.1"
   testRuntime group: "pdfbox", name: "pdfbox", version: "0.7.3"
+}
+
+uploadDefault {
+  uploadDescriptor = true
+  repositories {
+    add(new org.apache.ivy.plugins.resolver.FileSystemResolver()) {
+      name = 'repo'
+      addIvyPattern "$projectDir/repo/[organisation]/[module]/[revision]/ivy.xml"
+      addArtifactPattern "$projectDir/repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"
+      checkmodified = true
+    }
+  }
 }
 

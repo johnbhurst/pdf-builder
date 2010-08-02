@@ -1,0 +1,19 @@
+
+To build JAR:
+
+  gradle jar
+
+To deploy Ivy and Maven artifacts to skepticalhumorist.co.nz/artifactory (repo for alpha code):
+
+  gradle uploadArchives
+
+Note: You need to define properties in ~/.gradle/gradle.properties:
+artifactory.publish.username = Artifactory publish user
+artifactory.publish.password = Artifactory publish password
+
+To deploy Ivy artifacts in local filesystem repo:
+
+  gradle uploadDefault
+
+Yes, I want to make these deployment tasks more intuitive.
+

@@ -6,8 +6,7 @@ class ImageTest extends AbstractPDFBuilderTestCase {
 
   @Test
   void testOk() {
-    File file = new File(tmpDir, "ImageTest.pdf")
-    new PDFBuilder(outputStream: file.newOutputStream()).document() {
+    defaultBuilder.document() {
       // getInstance(byte[])
       // getInstance(Image)
       // getInstance(Image, Color)

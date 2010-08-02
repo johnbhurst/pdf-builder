@@ -2,6 +2,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.AfterClass
 import org.junit.BeforeClass
+import de.oio.jpdfunit.DocumentTester
 
 class AbstractPDFBuilderTestCase {
 
@@ -17,7 +18,20 @@ class AbstractPDFBuilderTestCase {
 
   @AfterClass
   static void tearDown() {
-    tmpDir.deleteDir()
+    // Is it better to delete the output documents, or leave em there to examine?
+    //tmpDir.deleteDir()
+  }
+
+  File getDefaultFile() {
+    new File(tmpDir, getClass().getSimpleName() + ".pdf")
+  }
+
+  PDFBuilder getDefaultBuilder() {
+    new PDFBuilder(outputStream: defaultFile.newOutputStream())
+  }
+
+  DocumentTester getDefaultTester() {
+    new DocumentTester(defaultFile.newInputStream())
   }
 
 }

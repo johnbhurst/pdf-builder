@@ -10,7 +10,7 @@ class PDFBuilderTest extends AbstractPDFBuilderTestCase {
   void testOk() {
     def HEADING_FONT = new Font(Font.FontFamily.HELVETICA, 16.0f, Font.BOLD, BaseColor.BLACK)
     def BOLD_FONT = new Font(Font.FontFamily.HELVETICA, 10.0f, Font.BOLD, BaseColor.BLUE)
-    def document = new PDFBuilder(outputStream: new File(tmpDir, "PDFBuilderTest.pdf").newOutputStream()).document() {
+    def document = defaultBuilder.document() {
       image(filename: "images/LowagieBook.png")
       paragraph(string: "First paragraph")
       paragraph(string: "Second paragraph", font: HEADING_FONT)

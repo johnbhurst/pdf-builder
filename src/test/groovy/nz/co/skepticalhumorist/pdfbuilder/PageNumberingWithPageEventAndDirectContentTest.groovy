@@ -12,7 +12,7 @@ class PageNumberingWithPageEventAndDirectContentTest extends AbstractPDFBuilderT
 
   @Test
   public void testOk() {
-    new PDFBuilder(outputStream: new File(tmpDir, "PageNumberingWithPageEventAndDirectContentTest.pdf").newOutputStream()).document(
+    defaultBuilder.document(
       onEndPage: {PdfWriter writer, PdfDocument document ->
         writer.withDirectContent {PdfContentByte cb ->
           cb.beginText()

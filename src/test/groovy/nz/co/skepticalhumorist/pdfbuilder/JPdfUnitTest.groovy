@@ -7,14 +7,12 @@ import de.oio.jpdfunit.document.util.TextSearchType
 class JPdfUnitTest extends AbstractPDFBuilderTestCase {
   @Test
   void testOk() {
-    File file = new File(tmpDir, "SimpleTest.pdf")
-    new PDFBuilder(outputStream: file.newOutputStream()).document() {
+    defaultBuilder.document() {
       paragraph("One paragraph")
     }
-    new DocumentTester(file.newInputStream()).with {
+    defaultTester.with {
       assertContentContainsText("One", TextSearchType.CONTAINS)
       assertPageCountEquals 1
     }
-    file.delete()
   }
 }

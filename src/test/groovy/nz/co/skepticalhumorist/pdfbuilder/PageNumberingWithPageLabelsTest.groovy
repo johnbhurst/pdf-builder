@@ -6,7 +6,7 @@ import com.itextpdf.text.pdf.PdfPageLabels
 class PageNumberingWithPageLabelsTest extends AbstractPDFBuilderTestCase {
   @Test
   void testOk() {
-    new PDFBuilder(outputStream: new File(tmpDir, "PageNumberingWithPageLabelsTest.pdf").newOutputStream()).document(
+    defaultBuilder.document(
       initWriter: {
         PdfPageLabels labels = new PdfPageLabels()
         labels.addPageLabel(1, PdfPageLabels.DECIMAL_ARABIC_NUMERALS)

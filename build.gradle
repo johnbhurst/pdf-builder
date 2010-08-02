@@ -17,7 +17,7 @@ apply plugin: "org.gradle.idea"
 
 group = "nz.co.skepticalhumorist"
 version = "00.00.05"
-status = 'snapshot'
+status = 'release'
 
 repositories {
   mavenCentral name: "itextpdf", urls: "http://maven.itextpdf.com/"

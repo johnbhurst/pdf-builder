@@ -5,6 +5,7 @@ import com.itextpdf.text.pdf.PdfContentByte
 import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfDocument
 import com.itextpdf.text.pdf.PdfWriter
+import de.oio.jpdfunit.document.util.TextSearchType
 
 class PageNumberingWithPageEventAndDirectContentTest extends AbstractPDFBuilderTestCase {
 
@@ -26,6 +27,10 @@ class PageNumberingWithPageEventAndDirectContentTest extends AbstractPDFBuilderT
       100.times {i ->
         paragraph("Paragraph $i.")
       }
+    }
+    defaultTester.with {
+      assertContentContainsTextOnPage("Page 1", 1, TextSearchType.CONTAINS)
+      assertContentContainsTextOnPage("Page 2", 2, TextSearchType.CONTAINS)
     }
   }
 }

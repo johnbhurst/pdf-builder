@@ -1,7 +1,7 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.pdf.PdfWriter
-import com.itextpdf.text.pdf.PdfContentByte
+import com.lowagie.text.pdf.PdfWriter
+import com.lowagie.text.pdf.PdfContentByte
 
 class PdfWriterCategory {
   public static void withDirectContent(PdfWriter writer, Closure closure) {

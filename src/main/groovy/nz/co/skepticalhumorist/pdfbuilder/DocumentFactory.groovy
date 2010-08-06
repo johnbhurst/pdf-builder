@@ -1,9 +1,9 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.Document
-import com.itextpdf.text.pdf.PdfWriter
-import com.itextpdf.text.pdf.PdfPTable
-import com.itextpdf.text.pdf.PdfPageLabels
+import com.lowagie.text.Document
+import com.lowagie.text.pdf.PdfWriter
+import com.lowagie.text.pdf.PdfPTable
+import com.lowagie.text.pdf.PdfPageLabels
 
 class DocumentFactory extends AbstractFactory {
 

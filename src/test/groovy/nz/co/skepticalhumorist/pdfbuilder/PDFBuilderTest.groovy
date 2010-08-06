@@ -1,15 +1,15 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
-import com.itextpdf.text.BaseColor
-import com.itextpdf.text.Document
-import com.itextpdf.text.Font
+import com.lowagie.text.Document
+import com.lowagie.text.Font
+import java.awt.Color
 
 class PDFBuilderTest extends AbstractPDFBuilderTestCase {
   @Test
   void testOk() {
-    def HEADING_FONT = new Font(Font.FontFamily.HELVETICA, 16.0f, Font.BOLD, BaseColor.BLACK)
-    def BOLD_FONT = new Font(Font.FontFamily.HELVETICA, 10.0f, Font.BOLD, BaseColor.BLUE)
+    def HEADING_FONT = new Font(Font.HELVETICA, 16.0f, Font.BOLD, Color.BLACK)
+    def BOLD_FONT = new Font(Font.HELVETICA, 10.0f, Font.BOLD, Color.BLUE)
     def document = defaultBuilder.document() {
       image(filename: "images/LowagieBook.png")
       paragraph(string: "First paragraph")

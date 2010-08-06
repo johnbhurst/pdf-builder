@@ -1,4 +1,8 @@
 
+REL-00.00.06
+
+  - Switched to iText 2.1.7 -- iText 5 Affero licence not suitable.
+
 REL-00.00.05 2010-08-02
 
   - Added PdfWriterCategory: withDirectContent(), withDirectContentUnder().

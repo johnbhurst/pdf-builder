@@ -16,17 +16,16 @@ apply plugin: "maven"
 apply plugin: "org.gradle.idea"
 
 group = "nz.co.skepticalhumorist"
-version = "00.00.05"
+version = "00.00.06"
 status = 'release'
 
 repositories {
-  mavenCentral name: "itextpdf", urls: "http://maven.itextpdf.com/"
   mavenCentral name: "jpdfunit-repo", urls: "http://jpdfunit.sourceforge.net/repo"
 }
 
 dependencies {
   groovy group: "org.codehaus.groovy", name: "groovy", version: "1.7.3"
-  compile group: "com.itextpdf", name: "itextpdf", version: "5.0.2"
+  compile group: "com.lowagie", name: "itext", version: "2.1.7"
   testCompile group: "junit", name: "junit", version: "4.8.1"
   testCompile group: "net.sf.jpdfunit", name: "jpdfunit", version: "1.1"
   testRuntime group: "pdfbox", name: "pdfbox", version: "0.7.3"

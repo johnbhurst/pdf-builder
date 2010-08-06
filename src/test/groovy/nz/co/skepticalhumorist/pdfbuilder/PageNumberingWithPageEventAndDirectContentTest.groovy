@@ -1,10 +1,10 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
-import com.itextpdf.text.pdf.PdfContentByte
-import com.itextpdf.text.pdf.BaseFont
-import com.itextpdf.text.pdf.PdfDocument
-import com.itextpdf.text.pdf.PdfWriter
+import com.lowagie.text.pdf.PdfContentByte
+import com.lowagie.text.pdf.BaseFont
+import com.lowagie.text.pdf.PdfDocument
+import com.lowagie.text.pdf.PdfWriter
 import de.oio.jpdfunit.document.util.TextSearchType
 
 class PageNumberingWithPageEventAndDirectContentTest extends AbstractPDFBuilderTestCase {

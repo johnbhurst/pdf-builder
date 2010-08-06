@@ -1,9 +1,9 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.Font
-import com.itextpdf.text.Paragraph
-import com.itextpdf.text.Chunk
-import com.itextpdf.text.Phrase
+import com.lowagie.text.Font
+import com.lowagie.text.Paragraph
+import com.lowagie.text.Chunk
+import com.lowagie.text.Phrase
 
 class ParagraphFactory extends AbstractFactory {
 

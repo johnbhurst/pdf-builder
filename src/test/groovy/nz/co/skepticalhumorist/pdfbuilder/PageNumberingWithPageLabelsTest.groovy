@@ -1,7 +1,7 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
-import com.itextpdf.text.pdf.PdfPageLabels
+import com.lowagie.text.pdf.PdfPageLabels
 
 class PageNumberingWithPageLabelsTest extends AbstractPDFBuilderTestCase {
   @Test

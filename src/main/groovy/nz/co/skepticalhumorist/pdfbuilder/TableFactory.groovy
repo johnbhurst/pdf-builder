@@ -1,7 +1,7 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.pdf.PdfPCell
-import com.itextpdf.text.pdf.PdfPTable
+import com.lowagie.text.pdf.PdfPCell
+import com.lowagie.text.pdf.PdfPTable
 
 class TableFactory extends AbstractFactory {
 

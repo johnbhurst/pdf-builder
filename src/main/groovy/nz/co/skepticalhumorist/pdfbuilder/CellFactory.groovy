@@ -1,6 +1,6 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.pdf.PdfPCell
+import com.lowagie.text.pdf.PdfPCell
 
 class CellFactory extends AbstractFactory {
 

@@ -1,11 +1,11 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.Image
 import java.awt.Color
-import com.itextpdf.text.pdf.PdfContentByte
-import com.itextpdf.text.pdf.PdfWriter
-import com.itextpdf.text.pdf.PdfTemplate
-import com.itextpdf.text.pdf.PRIndirectReference
+import com.lowagie.text.Image
+import com.lowagie.text.pdf.PdfContentByte
+import com.lowagie.text.pdf.PdfWriter
+import com.lowagie.text.pdf.PdfTemplate
+import com.lowagie.text.pdf.PRIndirectReference
 
 class ImageFactory extends AbstractFactory {
 

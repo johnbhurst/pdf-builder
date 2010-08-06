@@ -1,6 +1,6 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
-import com.itextpdf.text.Document
+import com.lowagie.text.Document
 
 class NewPageCommand implements DocumentCommand {
   void applyTo(Document document) {

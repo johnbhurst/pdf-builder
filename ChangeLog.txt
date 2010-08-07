@@ -2,6 +2,8 @@
 REL-00.00.06
 
   - Switched to iText 2.1.7 -- iText 5 Affero licence not suitable.
+  - Changed PDFBuilder constructor to require OutputStream.
+  - Added some iText examples made Groovy.
 
 REL-00.00.05 2010-08-02
 

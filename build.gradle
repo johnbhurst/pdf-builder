@@ -43,3 +43,14 @@ uploadDefault {
   }
 }
 
+void runExamples(String path) {
+  new File("build/$path").mkdirs()
+  def gse = new GroovyScriptEngine([path] as String[])
+  new File(path).eachFileMatch(~/^.*\.groovy$/) {file ->
+    gse.run(file.name, new Binding())
+  }
+}
+
+task runExamples << {
+  runExamples("examples/classroom/intro")
+}

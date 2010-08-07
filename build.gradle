@@ -46,7 +46,7 @@ uploadDefault {
 void runExamples(String path) {
   new File("build/$path").mkdirs()
   def gse = new GroovyScriptEngine([path] as String[])
-  new File(path).eachFileMatch(~/^.*\.groovy$/) {file ->
+  new File(path).eachFileMatch(~/^.*\.groovy$/) {File file ->
     gse.run(file.name, new Binding())
   }
 }

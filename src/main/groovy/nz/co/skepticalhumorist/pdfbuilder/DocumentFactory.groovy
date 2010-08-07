@@ -20,7 +20,6 @@ class DocumentFactory extends AbstractFactory {
     }
     writer = PdfWriter.getInstance(document, builder.outputStream)
     writer.setPageEvent(pageEvent)
-    document.open()
     if (attributes.containsKey("initWriter")) {
       Closure initWriter = attributes.remove("initWriter")
       initWriter.delegate = writer
@@ -31,6 +30,7 @@ class DocumentFactory extends AbstractFactory {
       initDocument.delegate = document
       initDocument()
     }
+    document.open()
     return document
   }
 

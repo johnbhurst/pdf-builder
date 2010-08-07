@@ -4,7 +4,8 @@ class PDFBuilder extends FactoryBuilderSupport {
 
   OutputStream outputStream
 
-  PDFBuilder() {
+  PDFBuilder(OutputStream outputStream) {
+    this.outputStream = outputStream
     registerFactory("document", new DocumentFactory())
     registerFactory("image", new ImageFactory())
     registerFactory("paragraph", new ParagraphFactory())

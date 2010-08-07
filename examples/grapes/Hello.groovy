@@ -5,6 +5,6 @@
 @Grab("nz.co.skepticalhumorist:pdf-builder:latest.release")
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 
-new PDFBuilder(outputStream: new File("Hello.pdf").newOutputStream()).document() {
+new PDFBuilder(new FileOutputStream("Hello.pdf")).document() {
   paragraph("Hello from iText.")
 }

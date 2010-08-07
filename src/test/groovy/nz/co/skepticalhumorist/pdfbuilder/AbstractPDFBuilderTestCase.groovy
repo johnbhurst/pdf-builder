@@ -27,7 +27,7 @@ class AbstractPDFBuilderTestCase {
   }
 
   PDFBuilder getDefaultBuilder() {
-    new PDFBuilder(outputStream: defaultFile.newOutputStream())
+    new PDFBuilder(defaultFile.newOutputStream())
   }
 
   DocumentTester getDefaultTester() {

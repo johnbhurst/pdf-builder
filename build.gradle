@@ -16,7 +16,7 @@ apply plugin: "maven"
 apply plugin: "org.gradle.idea"
 
 group = "nz.co.skepticalhumorist"
-version = "00.00.06"
+version = "00.00.07"
 status = 'release'
 
 repositories {

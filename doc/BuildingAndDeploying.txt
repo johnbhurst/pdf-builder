@@ -22,6 +22,6 @@ To generate a release:
   Check version property in gradle.properties
   Remove snapshots from repos
   gradle clean uploadArchives uploadDefault
-  git tag -m"Added tag for REL-xx.xx.xx."
+  git tag -m"Added tag for REL-xx.xx.xx." REL-xx.xx.xx
   git push origin REL-xx.xx.xx
 

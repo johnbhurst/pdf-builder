@@ -22,7 +22,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onOpenDocument(PdfWriter writer, Document document) {
     if (onOpenDocument) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onOpenDocument.call(writer, document)
       }
     }
@@ -30,7 +30,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onStartPage(PdfWriter writer, Document document) {
     if (onStartPage) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onStartPage.call(writer, document)
       }
     }
@@ -38,7 +38,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onEndPage(PdfWriter writer, Document document) {
     if (onEndPage) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onEndPage.call(writer, document)
       }
     }
@@ -46,7 +46,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onCloseDocument(PdfWriter writer, Document document) {
     if (onCloseDocument) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onCloseDocument.call(writer, document)
       }
     }
@@ -54,7 +54,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onParagraph(PdfWriter writer, Document document, float paragraphPosition) {
     if (onParagraph) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onParagraph.call(writer,  document, paragraphPosition)
       }
     }
@@ -62,7 +62,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onParagraphEnd(PdfWriter writer, Document document, float paragraphPosition) {
     if (onParagraphEnd) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onParagraphEnd.call(writer, document, paragraphPosition)
       }
     }
@@ -70,7 +70,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onChapter(PdfWriter writer, Document document, float paragraphPosition, Paragraph title) {
     if (onChapter) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onChapter.call(writer, document, paragraphPosition, title)
       }
     }
@@ -78,7 +78,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onChapterEnd(PdfWriter writer, Document document, float paragraphPosition) {
     if (onChapterEnd) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onChapterEnd.call(writer, document, paragraphPosition)
       }
     }
@@ -86,7 +86,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onSection(PdfWriter writer, Document document, float paragraphPosition, int depth, Paragraph title) {
     if (onSection) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onSection.call(writer, document, paragraphPosition, depth, title)
       }
     }
@@ -94,7 +94,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onSectionEnd(PdfWriter writer, Document document, float paragraphPosition) {
     if (onSectionEnd) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onSectionEnd.call(writer, document, paragraphPosition)
       }
     }
@@ -102,7 +102,7 @@ class ClosurePdfPageEvent implements PdfPageEvent {
 
   void onGenericTag(PdfWriter writer, Document document, Rectangle rect, String text) {
     if (onGenericTag) {
-      use (PdfWriterCategory) {
+      use (PdfCategory) {
         onGenericTag.call(writer, document, rect, text)
       }
     }

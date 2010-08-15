@@ -3,7 +3,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.pdf.PdfContentByte
 
-class PdfWriterCategory {
+class PdfCategory {
   public static void withDirectContent(PdfWriter writer, Closure closure) {
     doWithContentByte(writer.directContent, closure)
   }

@@ -12,12 +12,12 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(
   // But on the other hand, accessing DirectContent via event hooks might be a more typicaly real use-case.
   onOpenDocument: {writer, document ->
     writer.withDirectContent {PdfContentByte cb ->
-      cb.beginText(); // BT
-      cb.moveText(36, 806); // 36 806 Td
-      cb.moveText(0, -18); // 0 -18 Td
-      cb.setFontAndSize(bf, 12); // /F1 12 Tf
-      cb.showText("Hello World"); // (Hello World)Tj
-      cb.endText(); // ET
+      cb.beginText() // BT
+      cb.moveText(36, 806) // 36 806 Td
+      cb.moveText(0, -18) // 0 -18 Td
+      cb.setFontAndSize(bf, 12) // /F1 12 Tf
+      cb.showText("Hello World") // (Hello World)Tj
+      cb.endText() // ET
     }
   }
 ) {

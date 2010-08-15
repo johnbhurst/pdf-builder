@@ -4,11 +4,11 @@ import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.pdf.PdfContentByte
 
 class PdfCategory {
-  public static void withDirectContent(PdfWriter writer, Closure closure) {
+  static void withDirectContent(PdfWriter writer, Closure closure) {
     doWithContentByte(writer.directContent, closure)
   }
 
-  public static void withDirectContentUnder(PdfWriter writer, Closure closure) {
+  static void withDirectContentUnder(PdfWriter writer, Closure closure) {
     doWithContentByte(writer.directContentUnder, closure)
   }
 

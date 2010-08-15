@@ -1,1 +1,4 @@
 Groovy versions of iText 2 examples/classroom examples.
+
+See https://itext.svn.sourceforge.net/svnroot/itext/examples
+

@@ -3,7 +3,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 import com.lowagie.text.Document
 import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.pdf.PdfPTable
-import com.lowagie.text.pdf.PdfPageLabels
+import org.codehaus.groovy.runtime.DefaultGroovyMethods
 
 class DocumentFactory extends AbstractFactory {
 
@@ -13,12 +13,14 @@ class DocumentFactory extends AbstractFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     document = new Document()
+    DefaultGroovyMethods.mixin(document.metaClass, PdfCategory)
     pageEvent.properties.each {key, val ->
       if (attributes.containsKey(key)) {
         pageEvent[key] = attributes.remove(key)
       }
     }
     writer = PdfWriter.getInstance(document, builder.outputStream)
+    DefaultGroovyMethods.mixin(writer.metaClass, PdfCategory)
     writer.setPageEvent(pageEvent)
     if (attributes.containsKey("initWriter")) {
       Closure initWriter = attributes.remove("initWriter")

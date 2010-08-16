@@ -21,4 +21,15 @@ class PdfCategory {
       cb.restoreState()
     }
   }
+
+  // tentative ... either this or perhaps withDirectContentWithText() ?
+  static void withText(PdfContentByte cb, Closure closure) {
+    cb.beginText()
+    try {
+      closure.call(cb)
+    }
+    finally {
+      cb.endText()
+    }
+  }
 }

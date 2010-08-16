@@ -6,6 +6,7 @@ REL-00.00.07
   - Added some PdfTemplate support.
   - HelloWorld05 -> HelloWorld12 examples from iText examples.
   - JFreeChart example from iText examples.
+  - Added page() method for creating pages, alternative to newPage().
 
 REL-00.00.06 2010-08-09
 

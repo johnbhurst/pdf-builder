@@ -15,6 +15,7 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("newPage", new NewPageFactory())
     registerExplicitProperty("document", {documentFactory.document}, null)
     registerExplicitProperty("writer", {documentFactory.writer}, null)
+    registerExplicitMethod("page", {Closure closure -> closure.call() ; documentFactory.document.newPage() })
   }
 
   PDFBuilder build() {

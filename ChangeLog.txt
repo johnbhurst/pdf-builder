@@ -1,4 +1,9 @@
 
+REL-00.00.07
+  - HelloWorld05 -> HelloWorld12 examples from iText examples
+  - Test suite runs all example scripts
+  - Added some Graphics2D DirectContent support
+
 REL-00.00.06
 
   - Switched to iText 2.1.7 -- iText 5 Affero licence not suitable.

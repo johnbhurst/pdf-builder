@@ -55,7 +55,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document() {
   writer.directContent.with {
     addTemplate(width, height, 100, 440) {PdfTemplate template ->
       template.withGraphics(width, height, new DefaultFontMapper()) {Graphics2D graphics ->
-        barChart.draw(graphics, rect);
+        barChart.draw(graphics, rect)
       }
     }
     addTemplate(width, height, 100, 40) {PdfTemplate template ->

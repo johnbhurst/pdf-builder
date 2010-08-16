@@ -14,6 +14,16 @@ class PdfCategory {
     doWithContentByte(writer.directContentUnder, closure)
   }
 
+  private static void doWithContentByte(PdfContentByte cb, Closure closure) {
+    cb.saveState()
+    try {
+      closure.call(cb)
+    }
+    finally {
+      cb.restoreState()
+    }
+  }
+
   static void withGraphics(PdfContentByte cb, float width, float height, Closure closure) {
     doWithGraphics(cb, cb.createGraphics(width, height), closure)
   }
@@ -49,16 +59,6 @@ class PdfCategory {
     }
     finally {
       graphics.dispose()
-    }
-  }
-
-  private static void doWithContentByte(PdfContentByte cb, Closure closure) {
-    cb.saveState()
-    try {
-      closure.call(cb)
-    }
-    finally {
-      cb.restoreState()
     }
   }
 

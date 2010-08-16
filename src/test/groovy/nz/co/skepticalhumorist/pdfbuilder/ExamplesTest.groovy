@@ -6,7 +6,7 @@ class ExamplesTest {
 
   private void runExamples(String path) {
     new File("build/$path").mkdirs()
-    def gse = new GroovyScriptEngine([path] as String[])
+    def gse = new GroovyScriptEngine(["build/$path"] as String[])
     new File(path).eachFileMatch(~/^.*\.groovy$/) {File file ->
       gse.run(file.name, new Binding())
     }
@@ -14,6 +14,7 @@ class ExamplesTest {
 
   @Test
   void testOk() {
-    runExamples("build/examples/classroom/intro")
+    runExamples("examples/classroom/intro")
+    runExamples("examples/questions/graphics2D")
   }
 }

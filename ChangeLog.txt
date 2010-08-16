@@ -1,9 +1,11 @@
 
 REL-00.00.07
-  - HelloWorld05 -> HelloWorld12 examples from iText examples.
   - Test suite runs all example scripts.
   - Added some Graphics2D DirectContent support.
-  - Explicit property support for document, writer properties in builder.
+  - Added explicit property support for document, writer properties in builder.
+  - Added some PdfTemplate support.
+  - HelloWorld05 -> HelloWorld12 examples from iText examples.
+  - JFreeChart example from iText examples.
 
 REL-00.00.06
 

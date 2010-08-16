@@ -38,6 +38,30 @@ class PdfCategory {
     }
   }
 
+  static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphics(width, height), closure)
+    }
+  }
+
+  static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, FontMapper fontMapper, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphics(width, height, fontMapper), closure)
+    }
+  }
+
+  static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, boolean convertImagesToJPEG, float quality, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphics(width, height, convertImagesToJPEG, quality), closure)
+    }
+  }
+
+  static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, FontMapper fontMapper, boolean convertImagesToJPEG, float quality, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphics(width, height, fontMapper, convertImagesToJPEG, quality), closure)
+    }
+  }
+
   private static void doWithContentByteAndGraphics(PdfContentByte cb, Graphics2D graphics, Closure closure) {
     try {
       if (closure.maximumNumberOfParameters > 1) {

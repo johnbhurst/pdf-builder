@@ -51,6 +51,19 @@ void runExamples(String path) {
   }
 }
 
+// This task runs the examples as-is, fetching dependencies from a repo via Grape.
 task runExamples << {
   runExamples("examples/classroom/intro")
 }
+
+// This task creates copies of the example scripts with @Grab annotations removed.
+// These can be run by tests, fetching classes from the test classpath.
+task filterExamples(type: Copy) {
+  from "examples"
+  into "build/examples"
+  filter {String line ->
+    line.startsWith("@Grab") ? "" : line
+  }
+}
+
+test.dependsOn filterExamples

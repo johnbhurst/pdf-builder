@@ -7,20 +7,20 @@ import static com.lowagie.text.PageSize.A4
 import de.oio.jpdfunit.document.util.TextSearchType
 import java.awt.Graphics2D
 
-class DirectContentGraphicsTest extends AbstractPDFBuilderTestCase {
+class DirectContentGraphicsShapesTest extends AbstractPDFBuilderTestCase {
 
   @Test
   public void testDirectConent() {
     defaultBuilder.document(
       onOpenDocument: {PdfWriter writer, PdfDocument document ->
-        writer.withDirectContentGraphics(A4.width, A4.height) {Graphics2D graphics ->
+        writer.withDirectContentGraphicsShapes(A4.width, A4.height) {Graphics2D graphics ->
           graphics.drawString("Hello World Over", 36, 54)
         }
       }
     ) {
     }
     defaultTester.with {
-      assertContentContainsText("Hello World Over", TextSearchType.CONTAINS)
+      assertContentDoesNotContainText("Hello World Over", TextSearchType.CONTAINS)
     }
   }
 
@@ -28,16 +28,15 @@ class DirectContentGraphicsTest extends AbstractPDFBuilderTestCase {
   public void testDirectContentUnder() {
     defaultBuilder.document(
       onOpenDocument: {PdfWriter writer, PdfDocument document ->
-        writer.withDirectContentUnderGraphics(A4.width, A4.height) {Graphics2D graphics ->
+        writer.withDirectContentUnderGraphicsShapes(A4.width, A4.height) {Graphics2D graphics ->
           graphics.drawString("Hello World Under", 36, 54)
         }
       }
     ) {
     }
     defaultTester.with {
-      assertContentContainsText("Hello World Under", TextSearchType.CONTAINS)
+      assertContentDoesNotContainText("Hello World Under", TextSearchType.CONTAINS)
     }
   }
-
 
 }

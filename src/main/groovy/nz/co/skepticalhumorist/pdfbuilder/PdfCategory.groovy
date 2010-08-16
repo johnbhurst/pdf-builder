@@ -38,6 +38,18 @@ class PdfCategory {
     }
   }
 
+  static void withDirectContentGraphicsShapes(PdfWriter writer, float width, float height, Closure closure) {
+    doWithContentByte(writer.directContent) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphicsShapes(width, height), closure)
+    }
+  }
+
+  static void withDirectContentGraphicsShapes(PdfWriter writer, float width, float height, boolean convertImagesToJPEG, float quality, Closure closure) {
+    doWithContentByte(writer.directContent) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphicsShapes(width, height, convertImagesToJPEG, quality), closure)
+    }
+  }
+
   static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, Closure closure) {
     doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
       doWithContentByteAndGraphics(cb, cb.createGraphics(width, height), closure)
@@ -59,6 +71,18 @@ class PdfCategory {
   static void withDirectContentUnderGraphics(PdfWriter writer, float width, float height, FontMapper fontMapper, boolean convertImagesToJPEG, float quality, Closure closure) {
     doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
       doWithContentByteAndGraphics(cb, cb.createGraphics(width, height, fontMapper, convertImagesToJPEG, quality), closure)
+    }
+  }
+
+  static void withDirectContentUnderGraphicsShapes(PdfWriter writer, float width, float height, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphicsShapes(width, height), closure)
+    }
+  }
+
+  static void withDirectContentUnderGraphicsShapes(PdfWriter writer, float width, float height, boolean convertImagesToJPEG, float quality, Closure closure) {
+    doWithContentByte(writer.directContentUnder) {PdfContentByte cb ->
+      doWithContentByteAndGraphics(cb, cb.createGraphicsShapes(width, height, convertImagesToJPEG, quality), closure)
     }
   }
 

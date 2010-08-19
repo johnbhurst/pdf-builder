@@ -19,7 +19,7 @@ Here's a Hello World from pdf-builder:
 <code>
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 
-new PDFBuilder(outputStream: new File("Hello.pdf").newOutputStream()).document() {
+new PDFBuilder(new FileOutputStream("Hello.pdf")).document() {
   paragraph("Hello from iText.")
 }
 </code>

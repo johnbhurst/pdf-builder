@@ -16,5 +16,6 @@ class ExamplesTest {
   void testOk() {
     runExamples("examples/classroom/intro")
     runExamples("examples/questions/graphics2D")
+    runExamples("examples/questions/separators")
   }
 }

@@ -1,0 +1,760 @@
+<html>
+  <body>
+    <p>
+      This table shows all the classes that implement the Element interface.
+      For each class is shown:
+      </p>
+    <ul>
+      <li>Its parent class</li>
+      <li>Its public constructors</li>
+      <li>Its methods starting with "add"</li>
+    </ul>
+    <p>
+      These features are used to determine nesting and add...() behaviour in the pdf-builder DSL.
+      </p>
+    <table border='1'>
+      <tr>
+        <th>Class</th>
+        <th>Extends</th>
+        <th>Constructors</th>
+        <th>addXxx() methods</th>
+      </tr>
+      <tr valign='top'>
+        <td>Anchor</td>
+        <td>Phrase</td>
+        <td>
+          <span>Anchor()</span>
+          <br />
+          <span>Anchor(float)</span>
+          <br />
+          <span>Anchor(Chunk)</span>
+          <br />
+          <span>Anchor(String)</span>
+          <br />
+          <span>Anchor(String, Font)</span>
+          <br />
+          <span>Anchor(float, Chunk)</span>
+          <br />
+          <span>Anchor(float, String)</span>
+          <br />
+          <span>Anchor(float, String, Font)</span>
+          <br />
+          <span>Anchor(Phrase)</span>
+        </td>
+        <td>
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Annotation</td>
+        <td></td>
+        <td>
+          <span>Annotation(Annotation)</span>
+          <br />
+          <span>Annotation(String, String)</span>
+          <br />
+          <span>Annotation(String, String, float, float, float, float)</span>
+          <br />
+          <span>Annotation(float, float, float, float, URL)</span>
+          <br />
+          <span>Annotation(float, float, float, float, String)</span>
+          <br />
+          <span>Annotation(float, float, float, float, String, String)</span>
+          <br />
+          <span>Annotation(float, float, float, float, String, String, boolean)</span>
+          <br />
+          <span>Annotation(float, float, float, float, String, int)</span>
+          <br />
+          <span>Annotation(float, float, float, float, int)</span>
+          <br />
+          <span>Annotation(float, float, float, float, String, String, String, String)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Cell</td>
+        <td>Rectangle</td>
+        <td>
+          <span>Cell()</span>
+          <br />
+          <span>Cell(boolean)</span>
+          <br />
+          <span>Cell(String)</span>
+          <br />
+          <span>Cell(Element)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+          <br />
+          <span>addElement(Element)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Chapter</td>
+        <td>Section</td>
+        <td>
+          <span>Chapter(int)</span>
+          <br />
+          <span>Chapter(Paragraph, int)</span>
+          <br />
+          <span>Chapter(String, int)</span>
+        </td>
+        <td>
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addSection(float, Paragraph, int)</span>
+          <br />
+          <span>addSection(float, Paragraph)</span>
+          <br />
+          <span>addSection(Paragraph, int)</span>
+          <br />
+          <span>addSection(Paragraph)</span>
+          <br />
+          <span>addSection(float, String, int)</span>
+          <br />
+          <span>addSection(String, int)</span>
+          <br />
+          <span>addSection(float, String)</span>
+          <br />
+          <span>addSection(String)</span>
+          <br />
+          <span>addMarkedSection()</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>ChapterAutoNumber</td>
+        <td>Chapter</td>
+        <td>
+          <span>ChapterAutoNumber(Paragraph)</span>
+          <br />
+          <span>ChapterAutoNumber(String)</span>
+        </td>
+        <td>
+          <span>addSection(String)</span>
+          <br />
+          <span>addSection(Paragraph)</span>
+          <br />
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addSection(float, Paragraph, int)</span>
+          <br />
+          <span>addSection(float, Paragraph)</span>
+          <br />
+          <span>addSection(Paragraph, int)</span>
+          <br />
+          <span>addSection(float, String, int)</span>
+          <br />
+          <span>addSection(String, int)</span>
+          <br />
+          <span>addSection(float, String)</span>
+          <br />
+          <span>addMarkedSection()</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Chunk</td>
+        <td></td>
+        <td>
+          <span>Chunk()</span>
+          <br />
+          <span>Chunk(Chunk)</span>
+          <br />
+          <span>Chunk(String, Font)</span>
+          <br />
+          <span>Chunk(String)</span>
+          <br />
+          <span>Chunk(char, Font)</span>
+          <br />
+          <span>Chunk(char)</span>
+          <br />
+          <span>Chunk(Image, float, float)</span>
+          <br />
+          <span>Chunk(DrawInterface)</span>
+          <br />
+          <span>Chunk(DrawInterface, boolean)</span>
+          <br />
+          <span>Chunk(DrawInterface, float)</span>
+          <br />
+          <span>Chunk(DrawInterface, float, boolean)</span>
+          <br />
+          <span>Chunk(Image, float, float, boolean)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>DottedLineSeparator</td>
+        <td>LineSeparator</td>
+        <td>
+          <span>DottedLineSeparator()</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Element</td>
+        <td></td>
+        <td />
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>GreekList</td>
+        <td>List</td>
+        <td>
+          <span>GreekList()</span>
+          <br />
+          <span>GreekList(int)</span>
+          <br />
+          <span>GreekList(boolean, int)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Header</td>
+        <td>Meta</td>
+        <td>
+          <span>Header(String, String)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>HeaderFooter</td>
+        <td>Rectangle</td>
+        <td>
+          <span>HeaderFooter(Phrase, Phrase)</span>
+          <br />
+          <span>HeaderFooter(Phrase, boolean)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Image</td>
+        <td>Rectangle</td>
+        <td>
+          <span>Image(URL)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ImgCCITT</td>
+        <td>Image</td>
+        <td>
+          <span>ImgCCITT(int, int, boolean, int, int, byte[])</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ImgJBIG2</td>
+        <td>Image</td>
+        <td>
+          <span>ImgJBIG2()</span>
+          <br />
+          <span>ImgJBIG2(int, int, byte[], byte[])</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ImgRaw</td>
+        <td>Image</td>
+        <td>
+          <span>ImgRaw(int, int, int, int, byte[])</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ImgTemplate</td>
+        <td>Image</td>
+        <td>
+          <span>ImgTemplate(PdfTemplate)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ImgWMF</td>
+        <td>Image</td>
+        <td>
+          <span>ImgWMF(URL)</span>
+          <br />
+          <span>ImgWMF(String)</span>
+          <br />
+          <span>ImgWMF(byte[])</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>IncCell</td>
+        <td></td>
+        <td>
+          <span>IncCell(String, ChainedProperties)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Jpeg</td>
+        <td>Image</td>
+        <td>
+          <span>Jpeg(URL)</span>
+          <br />
+          <span>Jpeg(byte[])</span>
+          <br />
+          <span>Jpeg(byte[], float, float)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Jpeg2000</td>
+        <td>Image</td>
+        <td>
+          <span>Jpeg2000(URL)</span>
+          <br />
+          <span>Jpeg2000(byte[])</span>
+          <br />
+          <span>Jpeg2000(byte[], float, float)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>LargeElement</td>
+        <td></td>
+        <td />
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>LineSeparator</td>
+        <td>VerticalPositionMark</td>
+        <td>
+          <span>LineSeparator(float, float, Color, int, float)</span>
+          <br />
+          <span>LineSeparator()</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>List</td>
+        <td></td>
+        <td>
+          <span>List()</span>
+          <br />
+          <span>List(float)</span>
+          <br />
+          <span>List(boolean)</span>
+          <br />
+          <span>List(boolean, boolean)</span>
+          <br />
+          <span>List(boolean, float)</span>
+          <br />
+          <span>List(boolean, boolean, float)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>ListItem</td>
+        <td>Paragraph</td>
+        <td>
+          <span>ListItem()</span>
+          <br />
+          <span>ListItem(float)</span>
+          <br />
+          <span>ListItem(Chunk)</span>
+          <br />
+          <span>ListItem(String)</span>
+          <br />
+          <span>ListItem(String, Font)</span>
+          <br />
+          <span>ListItem(float, Chunk)</span>
+          <br />
+          <span>ListItem(float, String)</span>
+          <br />
+          <span>ListItem(float, String, Font)</span>
+          <br />
+          <span>ListItem(Phrase)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+          <br />
+          <span>add(int, Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>MarkedObject</td>
+        <td></td>
+        <td>
+          <span>MarkedObject(Element)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>MarkedSection</td>
+        <td>MarkedObject</td>
+        <td>
+          <span>MarkedSection(Section)</span>
+        </td>
+        <td>
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addSection(float, int)</span>
+          <br />
+          <span>addSection(float)</span>
+          <br />
+          <span>addSection(int)</span>
+          <br />
+          <span>addSection()</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Meta</td>
+        <td></td>
+        <td>
+          <span>Meta(String, String)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>MultiColumnText</td>
+        <td></td>
+        <td>
+          <span>MultiColumnText()</span>
+          <br />
+          <span>MultiColumnText(float)</span>
+          <br />
+          <span>MultiColumnText(float, float)</span>
+        </td>
+        <td>
+          <span>addElement(Element)</span>
+          <br />
+          <span>addColumn(float[], float[])</span>
+          <br />
+          <span>addText(Phrase)</span>
+          <br />
+          <span>addText(Chunk)</span>
+          <br />
+          <span>addSimpleColumn(float, float)</span>
+          <br />
+          <span>addRegularColumns(float, float, float, int)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Paragraph</td>
+        <td>Phrase</td>
+        <td>
+          <span>Paragraph()</span>
+          <br />
+          <span>Paragraph(float)</span>
+          <br />
+          <span>Paragraph(Chunk)</span>
+          <br />
+          <span>Paragraph(float, Chunk)</span>
+          <br />
+          <span>Paragraph(String)</span>
+          <br />
+          <span>Paragraph(String, Font)</span>
+          <br />
+          <span>Paragraph(float, String)</span>
+          <br />
+          <span>Paragraph(float, String, Font)</span>
+          <br />
+          <span>Paragraph(Phrase)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+          <br />
+          <span>add(int, Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>PdfCell</td>
+        <td>Rectangle</td>
+        <td>
+          <span>PdfCell(Cell, int, float, float, float, float, float)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>PdfPCell</td>
+        <td>Rectangle</td>
+        <td>
+          <span>PdfPCell()</span>
+          <br />
+          <span>PdfPCell(Phrase)</span>
+          <br />
+          <span>PdfPCell(Image)</span>
+          <br />
+          <span>PdfPCell(Image, boolean)</span>
+          <br />
+          <span>PdfPCell(PdfPTable)</span>
+          <br />
+          <span>PdfPCell(PdfPTable, PdfPCell)</span>
+          <br />
+          <span>PdfPCell(PdfPCell)</span>
+        </td>
+        <td>
+          <span>addElement(Element)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>PdfPTable</td>
+        <td></td>
+        <td>
+          <span>PdfPTable(float[])</span>
+          <br />
+          <span>PdfPTable(int)</span>
+          <br />
+          <span>PdfPTable(PdfPTable)</span>
+        </td>
+        <td>
+          <span>addCell(PdfPCell)</span>
+          <br />
+          <span>addCell(String)</span>
+          <br />
+          <span>addCell(PdfPTable)</span>
+          <br />
+          <span>addCell(Image)</span>
+          <br />
+          <span>addCell(Phrase)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>PdfTable</td>
+        <td>Rectangle</td>
+        <td />
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Phrase</td>
+        <td>ArrayList</td>
+        <td>
+          <span>Phrase()</span>
+          <br />
+          <span>Phrase(Phrase)</span>
+          <br />
+          <span>Phrase(float)</span>
+          <br />
+          <span>Phrase(Chunk)</span>
+          <br />
+          <span>Phrase(float, Chunk)</span>
+          <br />
+          <span>Phrase(String)</span>
+          <br />
+          <span>Phrase(String, Font)</span>
+          <br />
+          <span>Phrase(float, String)</span>
+          <br />
+          <span>Phrase(float, String, Font)</span>
+        </td>
+        <td>
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Rectangle</td>
+        <td></td>
+        <td>
+          <span>Rectangle(float, float, float, float)</span>
+          <br />
+          <span>Rectangle(float, float)</span>
+          <br />
+          <span>Rectangle(Rectangle)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>RectangleReadOnly</td>
+        <td>Rectangle</td>
+        <td>
+          <span>RectangleReadOnly(float, float, float, float)</span>
+          <br />
+          <span>RectangleReadOnly(float, float)</span>
+          <br />
+          <span>RectangleReadOnly(Rectangle)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>RomanList</td>
+        <td>List</td>
+        <td>
+          <span>RomanList()</span>
+          <br />
+          <span>RomanList(int)</span>
+          <br />
+          <span>RomanList(boolean, int)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Row</td>
+        <td></td>
+        <td />
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>Section</td>
+        <td>ArrayList</td>
+        <td />
+        <td>
+          <span>add(int, Object)</span>
+          <br />
+          <span>add(Object)</span>
+          <br />
+          <span>addAll(Collection)</span>
+          <br />
+          <span>addSection(float, Paragraph, int)</span>
+          <br />
+          <span>addSection(float, Paragraph)</span>
+          <br />
+          <span>addSection(Paragraph, int)</span>
+          <br />
+          <span>addSection(Paragraph)</span>
+          <br />
+          <span>addSection(float, String, int)</span>
+          <br />
+          <span>addSection(String, int)</span>
+          <br />
+          <span>addSection(float, String)</span>
+          <br />
+          <span>addSection(String)</span>
+          <br />
+          <span>addMarkedSection()</span>
+          <br />
+          <span>addAll(int, Collection)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>SimpleCell</td>
+        <td>Rectangle</td>
+        <td>
+          <span>SimpleCell(boolean)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+          <br />
+          <span>addElement(Element)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>SimpleTable</td>
+        <td>Rectangle</td>
+        <td>
+          <span>SimpleTable()</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+          <br />
+          <span>addElement(SimpleCell)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>Table</td>
+        <td>Rectangle</td>
+        <td>
+          <span>Table(int)</span>
+          <br />
+          <span>Table(int, int)</span>
+          <br />
+          <span>Table(Table)</span>
+        </td>
+        <td>
+          <span>addCell(Cell, int, int)</span>
+          <br />
+          <span>addCell(Cell, Point)</span>
+          <br />
+          <span>addCell(Cell)</span>
+          <br />
+          <span>addCell(Phrase)</span>
+          <br />
+          <span>addCell(Phrase, Point)</span>
+          <br />
+          <span>addCell(String)</span>
+          <br />
+          <span>addCell(String, Point)</span>
+          <br />
+          <span>addColumns(int)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>TextElementArray</td>
+        <td></td>
+        <td />
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>VerticalPositionMark</td>
+        <td></td>
+        <td>
+          <span>VerticalPositionMark()</span>
+          <br />
+          <span>VerticalPositionMark(DrawInterface, float)</span>
+        </td>
+        <td />
+      </tr>
+      <tr valign='top'>
+        <td>ZapfDingbatsList</td>
+        <td>List</td>
+        <td>
+          <span>ZapfDingbatsList(int)</span>
+          <br />
+          <span>ZapfDingbatsList(int, int)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+      <tr valign='top'>
+        <td>ZapfDingbatsNumberList</td>
+        <td>List</td>
+        <td>
+          <span>ZapfDingbatsNumberList(int)</span>
+          <br />
+          <span>ZapfDingbatsNumberList(int, int)</span>
+        </td>
+        <td>
+          <span>add(Object)</span>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

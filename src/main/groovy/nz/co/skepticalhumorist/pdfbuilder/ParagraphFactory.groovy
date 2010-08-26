@@ -4,10 +4,11 @@ import com.lowagie.text.Font
 import com.lowagie.text.Paragraph
 import com.lowagie.text.Chunk
 import com.lowagie.text.Phrase
+import org.codehaus.groovy.runtime.InvokerHelper
 
 class ParagraphFactory extends AbstractElementFactory {
 
-  def constructors = [
+  def ctorArgTypes= [
     [leading: float, string: String, font: Font],
     [leading: float, chunk: Chunk],
     [leading: float, string: String],
@@ -19,7 +20,8 @@ class ParagraphFactory extends AbstractElementFactory {
   ]
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-    Paragraph result = constructFromAttributes(Paragraph, constructors, attributes, value)
+    def ctorArgs = argsFromAttributes(ctorArgTypes, attributes, value)
+    Paragraph result = InvokerHelper.invokeConstructorOf(Paragraph, ctorArgs) 
     attributes.each {key, val ->
       result[key] = val
     }

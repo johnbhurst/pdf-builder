@@ -5,23 +5,19 @@ import com.lowagie.text.pdf.PdfPTable
 
 abstract class AbstractElementFactory extends AbstractFactory {
 
-  def constructFromAttributes(Class cls, List<Map<String, Class>> constructors, Map<String, Object> attributes, Object value) {
-    constructors.each {ctorMap ->
-      def ctorAttrNames = ctorMap.keySet()
-      if (ctorAttrNames.every {k -> attributes.containsKey(k)}) {
-        def args = ctorAttrNames.collect {k -> attributes.remove(k)}
-        return cls.newInstance(*args)
+
+  def argsFromAttributes(List<Map<String, Class>> argTypes, Map<String, Object> attributes, Object value) {
+    argTypes.each {Map<String, Class> argTypeMap ->
+      def argNames = argTypeMap.keySet()
+      if (argNames.every {argName -> attributes.containsKey(argName)}) {
+        return argNames.collect {argName -> attributes.remove(argName)}.toArray()
       }
     }
     if (value && value instanceof GString) {
-      // why do we need to treat this specially?
-      return cls.newInstance(value.toString())
-    }
-    else if (value) {
-      return cls.newInstance(value)
+      return value.toString()
     }
     else {
-      return cls.newInstance()
+      return value
     }
   }
 

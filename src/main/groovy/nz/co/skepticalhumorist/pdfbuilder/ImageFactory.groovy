@@ -29,7 +29,7 @@ class ImageFactory extends AbstractElementFactory {
   ]
 
   Image newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-    def ctorArgs = argsFromAttributes(ctorArgTypes, attributes, value)
+    def ctorArgs = PDFBuilder.argsFromAttributes(ctorArgTypes, attributes, value)
     Image result = InvokerHelper.invokeStaticMethod(Image, "getInstance", ctorArgs)
     if (attributes.containsKey("init")) {
       Closure init = attributes.remove("init")

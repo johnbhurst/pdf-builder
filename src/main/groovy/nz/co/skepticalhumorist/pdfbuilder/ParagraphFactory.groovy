@@ -20,7 +20,7 @@ class ParagraphFactory extends AbstractElementFactory {
   ]
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-    def ctorArgs = argsFromAttributes(ctorArgTypes, attributes, value)
+    def ctorArgs = PDFBuilder.argsFromAttributes(ctorArgTypes, attributes, value)
     Paragraph result = InvokerHelper.invokeConstructorOf(Paragraph, ctorArgs) 
     attributes.each {key, val ->
       result[key] = val

@@ -19,6 +19,16 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerExplicitMethod("page", {Closure closure -> closure.call() ; documentFactory.document.newPage() })
   }
 
+  def static argsFromAttributes(List<Map<String, Class>> argTypes, Map<String, Object> attributes, Object value) {
+    for (argTypeMap in argTypes) {
+      def argNames = argTypeMap.keySet()
+      if (attributes.keySet().containsAll(argNames)) {
+        return argNames.collect {argName -> attributes.remove(argName)}.toArray()
+      }
+    }
+    return value
+  }
+
   PDFBuilder build() {
     
   }

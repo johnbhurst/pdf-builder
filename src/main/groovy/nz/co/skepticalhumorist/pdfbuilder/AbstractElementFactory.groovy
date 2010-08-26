@@ -5,8 +5,6 @@ import com.lowagie.text.pdf.PdfPTable
 
 abstract class AbstractElementFactory extends AbstractFactory {
 
-
-
   @Override
   void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
     switch (parent) {

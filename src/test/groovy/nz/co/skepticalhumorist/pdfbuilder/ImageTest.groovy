@@ -22,9 +22,15 @@ class ImageTest extends AbstractPDFBuilderTestCase {
       // getInstance(PRIndirectReference)
       // getInstance(String)
       // getInstance(URL)
-      image("images/LowagieBook.png")
-      image(filename: "images/LowagieBook.png", init: {scalePercent(25f)})
-      image(url: new URL("http://www.itextpdf.com/img/1t3xt.gif"), init: {scalePercent(50f, 100f)})
+      def img1 = image("images/LowagieBook.png")
+      def img2 = image(filename: "images/LowagieBook.png", init: {scalePercent(25f)})
+      def img3 = image(url: new URL("http://www.itextpdf.com/img/1t3xt.gif"), init: {scalePercent(50f, 100f)})
+      assert img1.width == 355
+      assert img2.width == 355
+      assert img2.scaledWidth == 355 / 4
+      assert img3.width == 120
+      assert img3.scaledWidth == 120 / 2
+      assert img3.height == 75
     }
   }
 }

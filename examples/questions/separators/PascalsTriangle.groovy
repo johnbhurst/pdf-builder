@@ -14,7 +14,8 @@ def vp = new VerticalPositionMark()
 def RESULT = "build/examples/questions/separators/PascalsTriangle.pdf"
 new PDFBuilder(new FileOutputStream(RESULT)).document() {
   for (i in 0..20) {
-    paragraph(chunk(vp)) {
+    paragraph("") {
+      chunk(vp)
       for (j in 0..i) {
         chunk("" + pascal[i][j])
         chunk(vp)

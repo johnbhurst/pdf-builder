@@ -10,7 +10,7 @@ import org.codehaus.groovy.runtime.InvokerHelper
 
 class ImageFactory extends AbstractElementFactory {
 
-  def ctorArgTypes = [
+  def static ctorArgTypes = [
     [image: Image, color: Color, forceBW: boolean],
     [image: Image, color: Color],
     [width: int, height: int, reverseBits: boolean, typeCCITT: int, parameters: int, data: byte[], transparency: int[]],

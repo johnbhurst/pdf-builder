@@ -8,7 +8,7 @@ import org.codehaus.groovy.runtime.InvokerHelper
 
 class ParagraphFactory extends AbstractElementFactory {
 
-  def ctorArgTypes= [
+  def static ctorArgTypes = [
     [leading: float, string: String, font: Font],
     [leading: float, chunk: Chunk],
     [leading: float, string: String],

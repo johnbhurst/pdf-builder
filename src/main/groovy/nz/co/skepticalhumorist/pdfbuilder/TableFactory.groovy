@@ -3,7 +3,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 import com.lowagie.text.pdf.PdfPCell
 import com.lowagie.text.pdf.PdfPTable
 
-class TableFactory extends AbstractFactory {
+class TableFactory extends AbstractElementFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     PdfPTable result = new PdfPTable(value)
@@ -20,14 +20,14 @@ class TableFactory extends AbstractFactory {
 
   def void setChild(FactoryBuilderSupport builder, Object parent, Object child) {
     //println("TableFactory.setChild($builder, $parent, (${child.class}) $child)") // Add DEBUG message?
-    if (child.class == PdfPCell) {
-      parent.addCell(child)
-    }
+//    if (child.class == PdfPCell) {
+//      parent.addCell(child)
+//    }
   }
 
-  def void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
+//  def void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
     //println("TableFactory.onNodeCompleted($builder, $parent, $node)") // Add DEBUG message?
-    parent.add(node)
-  }
+//    parent.add(node)
+//  }
 
 }

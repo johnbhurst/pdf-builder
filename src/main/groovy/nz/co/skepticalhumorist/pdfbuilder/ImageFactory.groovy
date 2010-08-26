@@ -7,7 +7,7 @@ import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.pdf.PdfTemplate
 import com.lowagie.text.pdf.PRIndirectReference
 
-class ImageFactory extends AbstractFactory {
+class ImageFactory extends AbstractElementFactory {
 
   Image newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     Image result = null

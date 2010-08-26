@@ -5,7 +5,7 @@ import com.lowagie.text.Paragraph
 import com.lowagie.text.Chunk
 import com.lowagie.text.Phrase
 
-class ParagraphFactory extends AbstractFactory {
+class ParagraphFactory extends AbstractElementFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     Paragraph result = null

@@ -48,9 +48,9 @@ class DocumentFactory extends AbstractFactory {
     if (child instanceof DocumentCommand) {
       child.applyTo(document)
     }
-    else if (child.class != PdfPTable) {
-      parent.add(child)
-    }
+//    else if (child.class != PdfPTable) {
+//      parent.add(child)
+//    }
   }
 
   def void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {

@@ -7,6 +7,8 @@ REL-00.00.07
   - HelloWorld05 -> HelloWorld12 examples from iText examples.
   - JFreeChart example from iText examples.
   - Added page() method for creating pages, alternative to newPage().
+  - Made add/children handling more consistent and general.
+  - (Breaks compatibility with previous table cells.)
 
 REL-00.00.06 2010-08-09
 

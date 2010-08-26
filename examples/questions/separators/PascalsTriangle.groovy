@@ -1,6 +1,7 @@
 @Grab("nz.co.skepticalhumorist:pdf-builder:latest.release")
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
-import com.lowagie.text.pdf.draw.VerticalPositionMark;
+import com.lowagie.text.pdf.draw.VerticalPositionMark
+import com.lowagie.text.PageSize;
 
 pascal = [:].withDefault {i ->
   [:].withDefault {j ->
@@ -12,7 +13,7 @@ pascal = [:].withDefault {i ->
 def vp = new VerticalPositionMark()
 
 def RESULT = "build/examples/questions/separators/PascalsTriangle.pdf"
-new PDFBuilder(new FileOutputStream(RESULT)).document() {
+new PDFBuilder(new FileOutputStream(RESULT)).document(pageSize: PageSize.A4.rotate()) {
   for (i in 0..20) {
     paragraph("") {
       chunk(vp)

@@ -3,7 +3,7 @@ package nz.co.skepticalhumorist.pdfbuilder
 import org.junit.Test
 import com.lowagie.text.Paragraph
 
-class SimpleTableTest extends AbstractPDFBuilderTestCase {
+class TableTest extends AbstractPDFBuilderTestCase {
   @Test
   void testOk() {
     defaultBuilder.document() {

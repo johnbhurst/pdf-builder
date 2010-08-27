@@ -30,9 +30,9 @@ class PDFBuilderTest extends AbstractPDFBuilderTestCase {
       table([0.5f, 0.5f] as float[]) {
         cell(new Paragraph("one", BOLD_FONT)) ; cell(new Paragraph("two"))
       }
-      newPage()
+      document.newPage()
       paragraph("Next page (1)...")
-      newPage()
+      document.newPage()
       paragraph("Next page (2)...")
     }
     assert document.class == Document

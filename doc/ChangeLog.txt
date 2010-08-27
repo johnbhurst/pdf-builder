@@ -8,6 +8,7 @@ REL-00.00.07
   - JFreeChart example from iText examples.
   - Made add/children handling more consistent and general.
   - (Breaks compatibility with previous table cells.)
+  - Removed newPage() builder method, replace with document.newPage()
 
 REL-00.00.06 2010-08-09
 

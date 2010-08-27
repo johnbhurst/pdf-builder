@@ -13,7 +13,6 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("chunk", new ChunkFactory())
     registerFactory("table", new TableFactory())
     registerFactory("cell", new CellFactory())
-    registerFactory("newPage", new NewPageFactory())
     registerExplicitProperty("document", {documentFactory.document}, null)
     registerExplicitProperty("writer", {documentFactory.writer}, null)
   }

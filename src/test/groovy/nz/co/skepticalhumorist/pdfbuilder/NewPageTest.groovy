@@ -9,9 +9,9 @@ class NewPageTest extends AbstractPDFBuilderTestCase {
   void testUsingNewPageMethod() {
     defaultBuilder.document() {
       paragraph("Page 1")
-      newPage()
+      document.newPage()
       paragraph("Page 2")
-      newPage()
+      document.newPage()
       paragraph("Page 3")
     }
     defaultTester.with {

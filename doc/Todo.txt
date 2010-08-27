@@ -1,0 +1,8 @@
+2010-08-27
+  Tests for all constructors on element factories, e.g. Image.
+  Add factories for other Element classes: Anchor, Annotation, etc.
+  Documentation: builder node, creation and adding content.
+  Documentation: document, writer properties.
+  Documentation: event handling wiith closures.
+  Documentation: initialization with closures.
+  

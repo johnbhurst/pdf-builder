@@ -17,7 +17,7 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("chunk", new ChunkFactory())
 //    registerFactory("dottedLineSeparator", new DottedLineSeparatorFactory())
 //    registerFactory("greekList", new GreekListFactory())
-//    registerFactory("header", new HeaderFactory())
+    registerFactory("header", new HeaderFactory())
     registerFactory("image", new ImageFactory())
 //    registerFactory("imgCCITT", new ImgCCITTFactory())
 //    registerFactory("imgJBig", new ImgJBigFactory())

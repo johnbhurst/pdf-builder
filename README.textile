@@ -23,13 +23,13 @@ We hope to follow up soon with:
   * Maven artifacts
 
 Here's a Hello World from pdf-builder:
-<code>
+<pre>
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 
 new PDFBuilder(new FileOutputStream("Hello.pdf")).document() {
   paragraph("Hello from iText.")
 }
-</code>
+</pre>
 
 
 

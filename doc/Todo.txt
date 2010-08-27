@@ -5,4 +5,4 @@
   Documentation: document, writer properties.
   Documentation: event handling wiith closures.
   Documentation: initialization with closures.
-  
+  Documentation: notes about streaming, large objects.

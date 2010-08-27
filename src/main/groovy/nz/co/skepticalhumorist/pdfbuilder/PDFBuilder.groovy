@@ -32,7 +32,7 @@ class PDFBuilder extends FactoryBuilderSupport {
 //    registerFactory("listItem", new ListItemFactory())
 //    registerFactory("markedObject", new MarkedObjectFactory())
 //    registerFactory("markedSection", new MarkedSectionFactory())
-//    registerFactory("meta", new MetaFactory())
+    registerFactory("meta", new MetaFactory())
 //    registerFactory("multiColumnText", new MultiColumnTextFactory())
     registerFactory("paragraph", new ParagraphFactory())
     registerFactory("phrase", new PhraseFactory())

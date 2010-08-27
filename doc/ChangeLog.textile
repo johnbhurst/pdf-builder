@@ -35,8 +35,9 @@ h2. REL-00.00.02 2010-07-23
   * Added same JPdfUnit tests.
   * Added Ivy upload/publish support.
 
-h2. REL-00.00.00 2010-07-16
-
 h2. REL-00.00.01 2010-07-16
   * First alpha release, can do paragraphs and tables.
   * Started using in development at client site.
+
+h2. REL-00.00.00 2010-07-16
+  * Tagging error?

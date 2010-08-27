@@ -1,0 +1,3 @@
+Most of these examples are adapted from the correponding iText examples.
+
+See Subversion repository at https://itext.svn.sourceforge.net/svnroot/itext/examples.

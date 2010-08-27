@@ -12,7 +12,7 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("anchor", new AnchorFactory())
     registerFactory("annotation", new AnnotationFactory())
     registerFactory("cell", new CellFactory())
-//    registerFactory("chapter", new ChapterFactory())
+    registerFactory("chapter", new ChapterFactory())
 //    registerFactory("chapterAutoNumber", new ChapterAutoNumberFactory())
     registerFactory("chunk", new ChunkFactory())
 //    registerFactory("dottedLineSeparator", new DottedLineSeparatorFactory())

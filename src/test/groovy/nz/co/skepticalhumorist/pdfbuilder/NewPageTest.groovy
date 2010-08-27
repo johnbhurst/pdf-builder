@@ -21,24 +21,4 @@ class NewPageTest extends AbstractPDFBuilderTestCase {
     }
   }
 
-  @Test
-  void testUsingPageMethod() {
-    defaultBuilder.document() {
-      page {
-        paragraph("Page 1")
-      }
-      page {
-        paragraph("Page 2")
-      }
-      page {
-        paragraph("Page 3")
-      }
-    }
-    defaultTester.with {
-      assertContentContainsTextOnPage("Page 1", 1, TextSearchType.CONTAINS)
-      assertContentContainsTextOnPage("Page 2", 2, TextSearchType.CONTAINS)
-      assertContentContainsTextOnPage("Page 3", 3, TextSearchType.CONTAINS)
-    }
-  }
-
 }

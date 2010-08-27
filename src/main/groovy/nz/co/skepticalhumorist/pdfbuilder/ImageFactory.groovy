@@ -31,7 +31,14 @@ class ImageFactory extends ElementFactory {
     ]
   }
 
-  @Override def createInstance(Object ctorArgs) {
+  /**
+   * Creates a new Image node.
+   * Images are created using a static factory method in the Image class, rather than a public constructor.
+   * @param builder The builder.
+   * @param ctorArgs The constructor (i.e. getInstance()) arguments.
+   * @return The new Image.
+   */
+  @Override def createInstance(FactoryBuilderSupport builder, Object ctorArgs) {
     InvokerHelper.invokeStaticMethod(Image, "getInstance", ctorArgs)
   }
 

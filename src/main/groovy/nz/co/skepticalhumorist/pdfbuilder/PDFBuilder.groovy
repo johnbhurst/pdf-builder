@@ -39,7 +39,7 @@ class PDFBuilder extends FactoryBuilderSupport {
 //    registerFactory("rectangle", new RectangleFactory())
 //    registerFactory("rectangleReadOnly", new RectangleReadOnlyFactory())
 //    registerFactory("romanList", new RomanListFactory())
-//    registerFactory("section", new SectionFactory())
+    registerFactory("section", new SectionFactory())
     registerFactory("table", new TableFactory())
 //    registerFactory("verticalPositionMark", new VerticalPositionMarkFactory())
 //    registerFactory("zapfDigbatsList", new ZapfDigbatsListFactory())

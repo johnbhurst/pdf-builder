@@ -11,7 +11,7 @@ class ElementFactory extends AbstractFactory {
 
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     def ctorArgs = getArgs(attributes, value)
-    def result = createInstance(ctorArgs)
+    def result = createInstance(builder, ctorArgs)
     if (attributes.containsKey("init")) {
       Closure init = attributes.remove("init")
       init.delegate = result
@@ -23,7 +23,7 @@ class ElementFactory extends AbstractFactory {
     return result
   }
 
-  def createInstance(ctorArgs) {
+  def createInstance(FactoryBuilderSupport builder, ctorArgs) {
     return InvokerHelper.invokeConstructorOf(elementClass, ctorArgs)
   }
 

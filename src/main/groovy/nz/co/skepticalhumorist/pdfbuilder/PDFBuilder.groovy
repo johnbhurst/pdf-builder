@@ -8,12 +8,14 @@ class PDFBuilder extends FactoryBuilderSupport {
     this.outputStream = outputStream
     def documentFactory = new DocumentFactory()
     registerFactory("document", documentFactory)
+
+    registerFactory("anchor", new AnchorFactory())
+    registerFactory("cell", new CellFactory())
+    registerFactory("chunk", new ChunkFactory())
     registerFactory("image", new ImageFactory())
     registerFactory("paragraph", new ParagraphFactory())
-    registerFactory("chunk", new ChunkFactory())
     registerFactory("table", new TableFactory())
-    registerFactory("cell", new CellFactory())
-    registerFactory("anchor", new AnchorFactory())
+
     registerExplicitProperty("document", {documentFactory.document}, null)
     registerExplicitProperty("writer", {documentFactory.writer}, null)
   }

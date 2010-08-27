@@ -35,7 +35,7 @@ class PDFBuilder extends FactoryBuilderSupport {
 //    registerFactory("meta", new MetaFactory())
 //    registerFactory("multiColumnText", new MultiColumnTextFactory())
     registerFactory("paragraph", new ParagraphFactory())
-//    registerFactory("phrase", new PhraseFactory())
+    registerFactory("phrase", new PhraseFactory())
 //    registerFactory("rectangle", new RectangleFactory())
 //    registerFactory("rectangleReadOnly", new RectangleReadOnlyFactory())
 //    registerFactory("romanList", new RomanListFactory())

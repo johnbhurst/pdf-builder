@@ -10,7 +10,7 @@ class PDFBuilder extends FactoryBuilderSupport {
     registerFactory("document", documentFactory)
 
     registerFactory("anchor", new AnchorFactory())
-//    registerFactory("annotation", new AnnotationFactory())
+    registerFactory("annotation", new AnnotationFactory())
     registerFactory("cell", new CellFactory())
 //    registerFactory("chapter", new ChapterFactory())
 //    registerFactory("chapterAutoNumber", new ChapterAutoNumberFactory())

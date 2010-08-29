@@ -32,12 +32,16 @@ class PdfCategory {
   // addTemplate(template, x, y)
   // addTemplate(template, AffineTransform) (iText 5 only)
 
-  static void addTemplate(PdfContentByte cb, float width, float height, float a, float b, float c, float d, float e, float f, Closure closure) {
-    cb.addTemplate(createTemplate(cb, width, height, closure), a, b, c, d, e, f)
+  static PdfTemplate addTemplate(PdfContentByte cb, float width, float height, float a, float b, float c, float d, float e, float f, Closure closure) {
+    def template = createTemplate(cb, width, height, closure)
+    cb.addTemplate(template, a, b, c, d, e, f)
+    template
   }
 
-  static void addTemplate(PdfContentByte cb, float width, float height, float x, float y, Closure closure) {
-    cb.addTemplate(createTemplate(cb, width, height, closure), x, y)
+  static PdfTemplate addTemplate(PdfContentByte cb, float width, float height, float x, float y, Closure closure) {
+    def template = createTemplate(cb, width, height, closure)
+    cb.addTemplate(template, x, y)
+    template
   }
 
   private static createTemplate(PdfContentByte cb, float width, float height, Closure closure) {

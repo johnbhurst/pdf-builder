@@ -59,8 +59,4 @@ class PDFBuilder extends FactoryBuilderSupport {
     return value
   }
 
-  PDFBuilder build() {
-    
-  }
-
 }

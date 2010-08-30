@@ -1,5 +1,6 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
+import com.lowagie.text.pdf.MultiColumnText
 import com.lowagie.text.pdf.PdfPCell
 import com.lowagie.text.pdf.PdfPTable
 import org.codehaus.groovy.runtime.InvokerHelper
@@ -34,6 +35,7 @@ class ElementFactory extends AbstractFactory {
   @Override
   void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
     switch (parent) {
+      case MultiColumnText: parent.addElement(node); break;
       case PdfPCell: parent.addElement(node); break;
       case PdfPTable: parent.addCell(node); break;
       default: parent.add(node)

@@ -35,7 +35,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4, onEndPage: {w
     cb.fill()
   }
 }) {
-  multiColumnText(alignment: Element.ALIGN_JUSTIFIED, init: {
+  multiColumnText(alignment: Element.ALIGN_JUSTIFIED, init: {mct ->
     float gutter = 10
     float bodyHeight = document.top() - document.bottom() as float
     float colMaxWidth = (document.right() - document.left() - (gutter * 2)) / 2f as float
@@ -60,7 +60,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4, onEndPage: {w
       document.left() + colMaxWidth,
       document.bottom()
     ] as float[]
-    addColumn(left, right)
+    mct.addColumn(left, right)
     // setup column 2
     left = [
       document.right() - colMaxWidth,
@@ -80,7 +80,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4, onEndPage: {w
       document.right(),
       document.bottom()
     ] as float[]
-    addColumn(left, right)
+    mct.addColumn(left, right)
   }) {
     new File(INPUT).eachLine {line ->
       phrase("$line\n")

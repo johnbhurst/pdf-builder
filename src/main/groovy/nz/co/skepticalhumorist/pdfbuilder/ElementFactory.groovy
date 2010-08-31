@@ -15,8 +15,7 @@ class ElementFactory extends AbstractFactory {
     def result = createInstance(builder, ctorArgs)
     if (attributes.containsKey("init")) {
       Closure init = attributes.remove("init")
-      init.delegate = result
-      init()
+      init(result)
     }
     attributes.each {key, val ->
       result[key] = val

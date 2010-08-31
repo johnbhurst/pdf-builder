@@ -57,7 +57,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4) {
     paragraph(string: text, font: FontFactory.getFont(BaseFont.HELVETICA, 10, type), alignment: alignment, leading: 12)
   }
 
-  multiColumnText(init: {addRegularColumns(document.left(), document.right(), 10f, 3)}) {
+  multiColumnText(init: {mct -> mct.addRegularColumns(document.left(), document.right(), 10f, 3)}) {
     for (i in 1..30) {
       paragraph("$i")
       newParagraph(randomWord(noun), Element.ALIGN_CENTER, Font.BOLDITALIC)

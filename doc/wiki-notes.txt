@@ -1,0 +1,23 @@
+
+PDF-Builder:
+
+1. Rationale for PDFBuilder
+
+
+2. Creating Nodes
+  paragraph() vs new Paragraph()
+  attributes
+  children
+  "init" block
+
+3. Special Properties
+  document
+  writer
+
+4. Special Methods
+  writer.withDirectContent() {}
+  directContent.withGraphics() {}
+
+5. Closures for Page Events
+
+

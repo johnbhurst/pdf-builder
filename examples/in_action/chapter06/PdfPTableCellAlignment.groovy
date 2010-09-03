@@ -1,9 +1,7 @@
 @Grab("nz.co.skepticalhumorist:pdf-builder:latest.release")
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
-import com.lowagie.text.pdf.PdfPTable
-import com.lowagie.text.pdf.PdfPCell
-import com.lowagie.text.Paragraph
 import com.lowagie.text.Element
+import com.lowagie.text.Paragraph
 
 def RESULT= "build/examples/in_action/chapter06/PdfPTableCellAlignment.pdf"
 new PDFBuilder(new FileOutputStream(RESULT)).document() {

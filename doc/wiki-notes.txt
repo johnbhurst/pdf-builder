@@ -22,8 +22,8 @@ PDF-Builder:
 
 5. Closures for Page Events
 
-
 Notes:
   - Have to be careful mixing variable names with node factory names, e.g. "cell".
   - Note when using table() to heed the difference between text mode and composite mode
     (As explained in iText in Action, though it would be better if I had an example that showed the issues clearly.)
+  - In particular, PdfPTable.addCell(String) is a rather awkward case.  Explain this.

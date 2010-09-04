@@ -2,7 +2,9 @@
 PDF-Builder:
 
 1. Rationale for PDFBuilder
-
+   - Make iText more concise
+   - Make iText more Groovy
+   - Remain compatible with iText
 
 2. Creating Nodes
   paragraph() vs new Paragraph()

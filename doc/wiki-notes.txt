@@ -27,3 +27,4 @@ Notes:
   - Note when using table() to heed the difference between text mode and composite mode
     (As explained in iText in Action, though it would be better if I had an example that showed the issues clearly.)
   - In particular, PdfPTable.addCell(String) is a rather awkward case.  Explain this.
+  - Note about having to use "as float".

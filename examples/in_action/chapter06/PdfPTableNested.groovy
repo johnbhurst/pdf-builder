@@ -1,10 +1,6 @@
 @Grab("nz.co.skepticalhumorist:pdf-builder:latest.release")
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
-import java.awt.Color
-import com.lowagie.text.Element
-import com.lowagie.text.Paragraph
 import com.lowagie.text.pdf.PdfPTable
-import com.lowagie.text.pdf.PdfPCell
 
 def RESULT= "build/examples/in_action/chapter06/PdfPTableNested.pdf"
 new PDFBuilder(new FileOutputStream(RESULT)).document() {

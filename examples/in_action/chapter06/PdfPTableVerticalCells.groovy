@@ -2,7 +2,6 @@
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 import java.awt.Color
 import com.lowagie.text.Element
-import com.lowagie.text.PageSize
 import com.lowagie.text.Paragraph
 
 def RESULT= "build/examples/in_action/chapter06/PdfPTableVerticalCells.pdf"

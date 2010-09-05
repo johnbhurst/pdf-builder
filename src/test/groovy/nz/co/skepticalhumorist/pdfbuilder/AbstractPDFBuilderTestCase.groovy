@@ -1,5 +1,6 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
+import org.junit.After
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import de.oio.jpdfunit.DocumentTester
@@ -7,6 +8,8 @@ import de.oio.jpdfunit.DocumentTester
 class AbstractPDFBuilderTestCase {
 
   static File tmpDir
+
+  private DocumentTester defaultTester
 
   @BeforeClass
   static void setUp() {
@@ -31,7 +34,17 @@ class AbstractPDFBuilderTestCase {
   }
 
   DocumentTester getDefaultTester() {
-    new DocumentTester(defaultFile.newInputStream())
+    if (this.defaultTester == null) {
+      this.defaultTester = new DocumentTester(defaultFile.newInputStream())
+    }
+    this.defaultTester
+  }
+
+  @After
+  void closeResources() {
+    if (this.defaultTester != null) {
+      this.defaultTester.close()
+    }
   }
 
 }

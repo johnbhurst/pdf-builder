@@ -8,6 +8,6 @@
   Documentation: notes about streaming, large objects.
 
 2010-09-01
-  More flexible tables: addCell(String)
+  More flexible tables: addCell(String)                              2010-09-05
   More flexible tables: completeRow() etc
 

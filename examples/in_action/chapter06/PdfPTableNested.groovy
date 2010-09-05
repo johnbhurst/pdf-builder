@@ -20,7 +20,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document() {
         cell(nested2)
       }
       else {
-        table.addCell("cell $k")
+        cell("cell $k")
       }
     }
   }

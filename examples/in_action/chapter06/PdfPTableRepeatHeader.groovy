@@ -21,10 +21,10 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4.rotate()) {
     // We need 4 cells with rowspan 2
     datatable.defaultCell.borderWidth = 2
     datatable.defaultCell.horizontalAlignment = Element.ALIGN_CENTER
-    datatable.addCell("User Id")
-    datatable.addCell("Name\nAddress")
-    datatable.addCell("Company")
-    datatable.addCell("Department")
+    cell("User Id")
+    cell("Name\nAddress")
+    cell("Company")
+    cell("Department")
 
     // we use a nested table to fake this
     def permissions = new PdfPTable(6)
@@ -48,13 +48,13 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4.rotate()) {
     datatable.defaultCell.borderWidth = 1
     for (i in 1..29) {
       datatable.defaultCell.horizontalAlignment = Element.ALIGN_LEFT
-      datatable.addCell("myUserId")
-      datatable.addCell("Somebody with a very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long long name")
-      datatable.addCell("No Name Company")
-      datatable.addCell("D$i")
+      cell("myUserId")
+      cell("Somebody with a very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long long name")
+      cell("No Name Company")
+      cell("D$i")
       datatable.defaultCell.horizontalAlignment = Element.ALIGN_CENTER
       for (j in 0..5) {
-        datatable.addCell(Math.random() > 0.5 ? "Yes" : "No")
+        cell(Math.random() > 0.5 ? "Yes" : "No")
       }
     }
   }

@@ -26,7 +26,7 @@ class CellFactory extends ElementFactory {
     // We return the String for PdfPTable.addCell(String), and ignore any other attributes.
     // No PdfPCell is actually created.  The table's defaultCell is used instead.
     // Nested content is invalid.
-    if (value instanceof String) {
+    if (value instanceof String || value instanceof GString) {
       return value
     }
     else {

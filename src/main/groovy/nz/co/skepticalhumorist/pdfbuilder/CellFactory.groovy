@@ -19,4 +19,14 @@ class CellFactory extends ElementFactory {
     ]
   }
 
+  @Override
+  Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
+    if (value instanceof String) {
+      return value
+    }
+    else {
+      return super.newInstance(builder, name, value, attributes)
+    }
+  }
+
 }

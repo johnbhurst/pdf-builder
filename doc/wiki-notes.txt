@@ -24,6 +24,7 @@ PDF-Builder:
 
 Notes:
   - Have to be careful mixing variable names with node factory names, e.g. "cell".
+    (See PdfPTableCompare for example.)
   - Note when using table() to heed the difference between text mode and composite mode
     (As explained in iText in Action, though it would be better if I had an example that showed the issues clearly.)
   - Note about having to use "as float".

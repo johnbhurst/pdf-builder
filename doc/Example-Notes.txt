@@ -1,0 +1,36 @@
+Notes on the examples: Where PDFBuilder works well or doesn't.
+
+h1. Chapter 6
+
+PdfPTableAbsolutePositions:
+
+  table.setTotalWidth([50, 250] as float[])
+
+instead of
+
+  table.totalWidth = [50, 250] as float[]
+
+Because PdfPTable also has setTotalWidth(float), Groovy cannot treat totalWidth
+as a JavaBean property of type float[].
+
+This example writes table data using writeSelectedRows() and
+a PdfContentByte.  It does not use document.add(), so cannot use
+the builder's node syntax.
+
+PdfPTableAbsoluteWidths:
+
+Because setWidthPercentages is called with two arguments, we can't use
+an attribute map to initialize via JavaBean properties.
+
+PdfPTableCellHeights:
+
+The original example reuses a PdfPCell object in different rows.
+To follow that with PDFBuilder, we cannot use the builder's node management.
+The PdfPTableCellHeights.groovy script follows the original example.
+The PdfPTableCellHeights2.groovy script is a slight variation that uses
+builder nodes but produces the same resulting document.
+
+PdfPTableCellSpacing:
+
+This example is even "worse" in reusing objects.  (They are reused for the
+sake of the example, and don't represent a realistic real-life usage pattern.)

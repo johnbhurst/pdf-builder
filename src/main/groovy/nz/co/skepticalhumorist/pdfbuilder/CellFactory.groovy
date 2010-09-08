@@ -26,6 +26,19 @@ class CellFactory extends ElementFactory {
     // We return the String for PdfPTable.addCell(String), and ignore any other attributes.
     // No PdfPCell is actually created.  The table's defaultCell is used instead.
     // Nested content is invalid.
+
+    // Note that PdfPTable also has these other addCell() variants:
+    //   addCell(Phrase)
+    //   addCell(Image)
+    //   addCell(PdfPTable)
+    // In each of these cases the object is added via addCell(defaultCell).
+    // Also, for each of these cases, there is also an analagous PdfPCell constructor.
+    // Thus, having cell() node support for these cases like this support for String would be
+    // ambiguous.
+    // Note though that
+    //   addCell(phrase)
+    // is different from
+    //   addCell(new PdfPCell(phrase)), == cell(phrase)
     if (value instanceof String || value instanceof GString) {
       return value
     }

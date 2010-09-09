@@ -41,7 +41,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document() {
     listItem("the lazy cat")
     listItem("the fence")
   }
-  document.add(Chunk.NEWLINE);
+  document.add(Chunk.NEWLINE)
   list(numbered: List.UNORDERED, symbolIndent: 10, listSymbol: new Chunk("*")) {
     listItem("Quick brown fox jumps over")
     listItem(list1)

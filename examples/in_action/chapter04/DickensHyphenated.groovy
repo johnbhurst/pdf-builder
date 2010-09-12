@@ -17,7 +17,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A6, marginMirrori
     "the other way\u2014in short, the period was so far like the present " +
     "period, that some of its noisiest authorities insisted on its " +
     "being received, for good or for evil, in the superlative degree " +
-    "of comparison only.";
+    "of comparison only."
   paragraph("", alignment: Paragraph.ALIGN_JUSTIFIED) {
     chunk(text, hyphenation: new HyphenationAuto("en", "GB", 2, 2))
   }

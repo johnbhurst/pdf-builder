@@ -13,8 +13,8 @@ class ImageFactory extends ElementFactory {
   ImageFactory() {
     elementClass = Image
     ctorArgTypes = [
-      [image: Image, color: Color, forceBW: boolean],
-      [image: Image, color: Color],
+      [awtImage: java.awt.Image, color: Color, forceBW: boolean],
+      [awtImage: java.awt.Image, color: Color],
       [width: int, height: int, reverseBits: boolean, typeCCITT: int, parameters: int, data: byte[], transparency: int[]],
       [width: int, height: int, reverseBits: boolean, typeCCITT: int, parameters: int, data: byte[]],
       [width: int, height: int, data: byte[], globals: byte[]],

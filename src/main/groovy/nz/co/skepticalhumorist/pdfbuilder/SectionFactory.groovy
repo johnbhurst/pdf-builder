@@ -31,4 +31,9 @@ class SectionFactory extends ElementFactory {
     InvokerHelper.invokeMethod(builder.current, "addSection", ctorArgs)
   }
 
+  @Override
+  void onNodeCompleted(FactoryBuilderSupport builder, Object parent, Object node) {
+    // Do nothing.  Sections are created already added to their parents.
+  }
+
 }

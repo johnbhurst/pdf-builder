@@ -38,7 +38,6 @@ class ElementFactory extends AbstractFactory {
       case MultiColumnText: parent.addElement(node); break;
       case PdfPCell: parent.addElement(node); break;
       case PdfPTable: parent.addCell(node); break;
-      case Section: break; // Sections are created already added to their parents
       default: parent.add(node)
     }
   }

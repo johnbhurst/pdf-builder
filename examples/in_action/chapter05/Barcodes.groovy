@@ -170,7 +170,7 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter05/Barcodes
     "the other way - in short, the period was so far like the present " +
     "period, that some of its noisiest authorities insisted on its " +
     "being received, for good or for evil, in the superlative degree " +
-    "of comparison only.";
+    "of comparison only."
   pdf417.setText(text)
   Image img = pdf417.getImage()
   img.scalePercent(50, 50 * pdf417.YHeight as float)

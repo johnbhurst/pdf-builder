@@ -43,3 +43,6 @@ useful the generic tag event is.  But it does this via a function.
 The function could equally well tally the lines per speaker.  The
 generic tag event just adds unnecessary complexity in this example.
 
+
+Note on location of examples resource: System.properties["itext.examples.home"]
+

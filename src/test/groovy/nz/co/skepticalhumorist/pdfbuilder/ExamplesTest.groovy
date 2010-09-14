@@ -18,6 +18,7 @@ class ExamplesTest {
     runExamples("examples/questions/graphics2D")
     runExamples("examples/questions/separators")
     runExamples("examples/in_action/chapter04")
+    runExamples("examples/in_action/chapter08")
     if (System.properties.containsKey("itext.examples.home")) {
       //println "Running iText examples..."
       runExamples("examples/in_action/chapter05")

@@ -57,6 +57,9 @@ How about omitting unnecessary parentheses?
 
 VerticalText example: builder node for VerticalText on directContent?
 
+2010-09-18
+
+ChineseKoreanJapaneseFonts example not working correctly.
 
 
 

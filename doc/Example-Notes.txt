@@ -46,3 +46,14 @@ generic tag event just adds unnecessary complexity in this example.
 
 Note on location of examples resource: System.properties["itext.examples.home"]
 
+2010-09-16
+
+resourcePath() method: standard name for itext.examples.home / resource
+
+GString: property reference.  Need braces?
+How about omitting unnecessary parentheses?
+
+
+
+
+

@@ -53,6 +53,9 @@ resourcePath() method: standard name for itext.examples.home / resource
 GString: property reference.  Need braces?
 How about omitting unnecessary parentheses?
 
+2010-09-17
+
+VerticalText example: builder node for VerticalText on directContent?
 
 
 

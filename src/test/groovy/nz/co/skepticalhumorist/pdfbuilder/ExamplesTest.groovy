@@ -20,6 +20,7 @@ class ExamplesTest {
     runExamples("examples/in_action/chapter04")
     runExamples("examples/in_action/chapter08")
     runExamples("examples/in_action/chapter09")
+    runExamples("examples/in_action/chapter10")
     if (System.properties.containsKey("itext.examples.home")) {
       //println "Running iText examples..."
       runExamples("examples/in_action/chapter05")

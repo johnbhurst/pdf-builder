@@ -64,4 +64,9 @@ ChineseKoreanJapaneseFonts example not working correctly.
 PdfPTableCellEvents: Can we make more natural events using Closures?
 How about Closures specific to different canvases?
 
+2010-09-20
+
+PdfPTable addCell via defaultCell of new Cell?
+Makes a big difference.
+E.g. PdfPTableFloatingBoxes example.
 

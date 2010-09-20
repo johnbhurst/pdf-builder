@@ -15,12 +15,10 @@ class PageNumberingWithPageEventAndDirectContentTest extends AbstractPDFBuilderT
   public void testOk() {
     defaultBuilder.document(
       onEndPage: {PdfWriter writer, PdfDocument document ->
-        writer.withDirectContent {PdfContentByte cb ->
-          cb.beginText()
+        writer.directContent.withText {PdfContentByte cb ->
           cb.setFontAndSize(font, 12)
           cb.setTextMatrix(document.left() as float, document.bottom() - 20 as float)
           cb.showText("Page " + writer.getPageNumber())
-          cb.endText()
         }
       }
     ) {

@@ -11,13 +11,11 @@ class ExplicitWriterPropertyTest extends AbstractPDFBuilderTestCase {
   void testOk() {
     defaultBuilder.document() {
       paragraph("Para 1")
-      writer.withDirectContent {cb ->
-        cb.beginText()
+      writer.directContent.withText {cb ->
         cb.moveText(36, 806)
         cb.moveText(0, -54)
         cb.setFontAndSize(bf, 12)
         cb.showText("Direct Content")
-        cb.endText()
       }
       paragraph("Para 2")
     }

@@ -73,3 +73,8 @@ task filterExamples(type: Copy) {
 }
 
 test.dependsOn filterExamples
+
+test {
+  systemProperties 'itext.examples.home': System.properties["itext.examples.home"]
+  systemProperties 'windows.font.location': System.properties["windows.font.location"]
+}

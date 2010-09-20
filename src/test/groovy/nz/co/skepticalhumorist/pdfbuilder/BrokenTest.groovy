@@ -6,7 +6,7 @@ class BrokenTest {
 
   @Test
   void failTest() {
-    assert 1 + 2 == 10
+    assert 1 + 2 == 3
   }
 
 }

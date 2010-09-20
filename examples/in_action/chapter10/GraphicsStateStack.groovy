@@ -7,11 +7,11 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter10/Graphics
     cb1.circle(260, 500, 250)
     cb1.fill()
     cb1.withState {cb2 ->
-      cb2.setColorFill(Color.yellow)
+      cb2.colorFill = Color.yellow
       cb2.circle(260, 500, 200)
       cb2.fill()
       cb2.withState {cb3 ->
-        cb3.setColorFill(Color.red)
+        cb3.colorFill = Color.red
         cb3.circle(260, 500, 150)
         cb3.fill()
       }

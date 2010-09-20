@@ -18,7 +18,6 @@ class ExamplesTest {
     runExamples("examples/questions/graphics2D")
     runExamples("examples/questions/separators")
     runExamples("examples/in_action/chapter04")
-    runExamples("examples/in_action/chapter08")
     runExamples("examples/in_action/chapter09")
     runExamples("examples/in_action/chapter10")
     if (System.properties.containsKey("itext.examples.home")) {
@@ -26,6 +25,7 @@ class ExamplesTest {
       runExamples("examples/in_action/chapter05")
       runExamples("examples/in_action/chapter06")
       runExamples("examples/in_action/chapter07")
+      runExamples("examples/in_action/chapter08")
     }
   }
 }

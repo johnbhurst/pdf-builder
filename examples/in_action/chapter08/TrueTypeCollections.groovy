@@ -5,7 +5,7 @@ import com.lowagie.text.Font
 import com.lowagie.text.pdf.BaseFont
 
 String windowsFontPath(String path) {
-  System.properties["windows.font.path"] + "/" + path
+  System.properties["windows.font.location"] + "/" + path
 }
 
 new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter08/TrueTypeCollections.pdf")).document() {

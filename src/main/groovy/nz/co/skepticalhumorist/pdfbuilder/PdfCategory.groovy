@@ -8,15 +8,8 @@ import com.lowagie.text.pdf.PdfWriter
 import org.codehaus.groovy.runtime.DefaultGroovyMethods
 
 class PdfCategory {
-  static void withDirectContent(PdfWriter writer, Closure closure) {
-    doWithContentByte(writer.directContent, closure)
-  }
 
-  static void withDirectContentUnder(PdfWriter writer, Closure closure) {
-    doWithContentByte(writer.directContentUnder, closure)
-  }
-
-  private static void doWithContentByte(PdfContentByte cb, Closure closure) {
+  static void withContentByte(PdfContentByte cb, Closure closure) {
     cb.saveState()
     try {
       closure.call(cb)
@@ -24,6 +17,24 @@ class PdfCategory {
     finally {
       cb.restoreState()
     }
+  }
+
+  /**
+   * @deprecated Use writer.directContent.withContentByte instead
+   * @param writer The PdfWriter.
+   * @param closure The stuff to do
+   */
+  static void withDirectContent(PdfWriter writer, Closure closure) {
+    writer.directContent.withContentByte(closure)
+  }
+
+  /**
+   * @deprecated Use writer.directContentUnder.withContentByte instead.
+   * @param writer The PdfWriter.
+   * @param closure The stuff to do.
+   */
+  static void withDirectContentUnder(PdfWriter writer, Closure closure) {
+    writer.directContentUnder.withContentByte(closure)
   }
 
   // createTemplate(width, height)

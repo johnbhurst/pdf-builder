@@ -17,7 +17,7 @@ PDF-Builder:
   writer
 
 4. Special Methods
-  writer.withDirectContent() {}
+  directContent.withContentByte() {} (rename?)
   directContent.withGraphics() {}
 
 5. Closures for Page Events

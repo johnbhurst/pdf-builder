@@ -9,7 +9,7 @@ import org.codehaus.groovy.runtime.DefaultGroovyMethods
 
 class PdfCategory {
 
-  static void withContentByte(PdfContentByte cb, Closure closure) {
+  static void withState(PdfContentByte cb, Closure closure) {
     cb.saveState()
     try {
       closure.call(cb)
@@ -20,21 +20,21 @@ class PdfCategory {
   }
 
   /**
-   * @deprecated Use writer.directContent.withContentByte instead
+   * @deprecated Use writer.directContent.withState instead
    * @param writer The PdfWriter.
    * @param closure The stuff to do
    */
   static void withDirectContent(PdfWriter writer, Closure closure) {
-    writer.directContent.withContentByte(closure)
+    writer.directContent.withState(closure)
   }
 
   /**
-   * @deprecated Use writer.directContentUnder.withContentByte instead.
+   * @deprecated Use writer.directContentUnder.withState instead.
    * @param writer The PdfWriter.
    * @param closure The stuff to do.
    */
   static void withDirectContentUnder(PdfWriter writer, Closure closure) {
-    writer.directContentUnder.withContentByte(closure)
+    writer.directContentUnder.withState(closure)
   }
 
   // createTemplate(width, height)

@@ -18,6 +18,16 @@ class PdfCategory {
     }
   }
 
+  static void withText(PdfContentByte cb, Closure closure) {
+    cb.beginText()
+    try {
+      closure.call(cb)
+    }
+    finally {
+      cb.endText()
+    }
+  }
+
   // createTemplate(width, height)
   // createTemplate(width, height, PdfName forcedName) (not public)
   // addTemplate(template, a, b, c, d, e, f)
@@ -81,14 +91,4 @@ class PdfCategory {
     }
   }
 
-  // tentative ... either this or perhaps withDirectContentWithText() ?
-  static void withText(PdfContentByte cb, Closure closure) {
-    cb.beginText()
-    try {
-      closure.call(cb)
-    }
-    finally {
-      cb.endText()
-    }
-  }
 }

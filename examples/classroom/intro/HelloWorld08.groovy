@@ -16,13 +16,11 @@ new PDFBuilder(new FileOutputStream(RESULT)).document() {
     cb.moveText(-15.33f, 0)
     cb.showText("llo")
   }
-  PdfTemplate tmp = writer.directContent.createTemplate(250, 25)
-  use (PdfCategory) {
+  writer.directContent.addTemplate(250, 25, 36, 781) {tmp ->
     tmp.withText {cb ->
       cb.setFontAndSize(bf, 12)
       cb.moveText(0, 7)
       cb.showText("He")
     }
   }
-  writer.directContent.addTemplate(tmp, 36, 781)
 }

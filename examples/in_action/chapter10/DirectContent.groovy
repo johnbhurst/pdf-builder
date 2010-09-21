@@ -13,14 +13,14 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter10/DirectCo
     cb.lineTo(llx + (2 * w) / 3 as float, lly)
     cb.closePathFillStroke()
   }
-  writer.withDirectContent {cb -> drawLayer(cb, 70, 750, 150, 100)}
-  writer.withDirectContentUnder {cb -> drawLayer(cb, 70, 730, 150, 100)}
+  writer.directContent.withState {cb -> drawLayer(cb, 70, 750, 150, 100)}
+  writer.directContentUnder.withState {cb -> drawLayer(cb, 70, 730, 150, 100)}
   10.times {
     paragraph("quick brown fox ") {
       chunk("jumps", background: new GrayColor(0.5f))
       chunk(" over the lazy dog")
     }
   }
-  writer.withDirectContent {cb -> drawLayer(cb, 70, 670, 150, 100)}
-  writer.withDirectContentUnder {cb -> drawLayer(cb, 70, 650, 150, 100)}
+  writer.directContent.withState {cb -> drawLayer(cb, 70, 670, 150, 100)}
+  writer.directContentUnder.withState {cb -> drawLayer(cb, 70, 650, 150, 100)}
 }

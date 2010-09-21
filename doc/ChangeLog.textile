@@ -10,10 +10,12 @@ h2. REL-00.00.07
   * PascalsTriangle example from iText examples.
   * Made add/children handling more consistent and general.
   * (Breaks compatibility with previous table cells.)
-  * Removed newPage() builder method, replace with document.newPage()
+  * Removed newPage() builder method, replace with document.newPage().
   * Added new element factories:
     ** Anchor
     ** Chunk
+  * Removed withDirectContent(), withDirectContentUnder(); replaced with other approaches.
+  * Added PdfContentByte#withState(), withText().
 
 h2. REL-00.00.06 2010-08-09
   * Switched to iText 2.1.7 -- iText 5 Affero licence not suitable.

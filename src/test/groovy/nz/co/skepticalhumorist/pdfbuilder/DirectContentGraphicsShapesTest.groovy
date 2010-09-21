@@ -31,10 +31,8 @@ class DirectContentGraphicsShapesTest extends AbstractPDFBuilderTestCase {
   public void testDirectContentUnder() {
     defaultBuilder.document(
       onOpenDocument: {PdfWriter writer, PdfDocument document ->
-        writer.withDirectContentUnder {PdfContentByte cb ->
-          cb.withGraphicsShapes(A4.width, A4.height) {Graphics2D graphics ->
-            graphics.drawString("Hello World Under", 36, 54)
-          }
+        writer.directContentUnder.withGraphicsShapes(A4.width, A4.height) {Graphics2D graphics ->
+          graphics.drawString("Hello World Under", 36, 54)
         }
       }
     ) {

@@ -28,15 +28,6 @@ class PdfCategory {
     writer.directContent.withState(closure)
   }
 
-  /**
-   * @deprecated Use writer.directContentUnder.withState instead.
-   * @param writer The PdfWriter.
-   * @param closure The stuff to do.
-   */
-  static void withDirectContentUnder(PdfWriter writer, Closure closure) {
-    writer.directContentUnder.withState(closure)
-  }
-
   // createTemplate(width, height)
   // createTemplate(width, height, PdfName forcedName) (not public)
   // addTemplate(template, a, b, c, d, e, f)

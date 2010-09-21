@@ -4,7 +4,6 @@ import java.awt.Graphics2D
 import com.lowagie.text.pdf.FontMapper
 import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfTemplate
-import com.lowagie.text.pdf.PdfWriter
 import org.codehaus.groovy.runtime.DefaultGroovyMethods
 
 class PdfCategory {
@@ -17,15 +16,6 @@ class PdfCategory {
     finally {
       cb.restoreState()
     }
-  }
-
-  /**
-   * @deprecated Use writer.directContent.withState instead
-   * @param writer The PdfWriter.
-   * @param closure The stuff to do
-   */
-  static void withDirectContent(PdfWriter writer, Closure closure) {
-    writer.directContent.withState(closure)
   }
 
   // createTemplate(width, height)

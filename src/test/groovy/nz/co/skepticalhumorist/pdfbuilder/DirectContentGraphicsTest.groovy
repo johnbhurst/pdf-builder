@@ -1,7 +1,6 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import org.junit.Test
-import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfDocument
 import com.lowagie.text.pdf.PdfWriter
 import static com.lowagie.text.PageSize.A4
@@ -14,10 +13,8 @@ class DirectContentGraphicsTest extends AbstractPDFBuilderTestCase {
   public void testDirectConent() {
     defaultBuilder.document(
       onOpenDocument: {PdfWriter writer, PdfDocument document ->
-        writer.withDirectContent {PdfContentByte cb ->
-          cb.withGraphics(A4.width, A4.height) {Graphics2D graphics ->
-            graphics.drawString("Hello World Over", 36, 54)
-          }
+        writer.directContent.withGraphics(A4.width, A4.height) {Graphics2D graphics ->
+          graphics.drawString("Hello World Over", 36, 54)
         }
       }
     ) {

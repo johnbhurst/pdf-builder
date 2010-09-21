@@ -2,7 +2,6 @@
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 import com.lowagie.text.Element
 import com.lowagie.text.PageSize
-import com.lowagie.text.pdf.PdfContentByte
 import java.awt.Color
 
 /**
@@ -20,19 +19,19 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4, onEndPage: {w
   float centerX = (document.right() - document.left()) / 2 + document.left() as float
   float bodyHeight = document.top() - document.bottom() as float
   float diamondTop = document.top() - ((bodyHeight - diamondHeight) / 2f) as float
-  writer.withDirectContent {PdfContentByte cb ->
-    cb.lineWidth = 5
-    cb.colorStroke = Color.GRAY
-    cb.moveTo(centerX, document.top())
-    cb.lineTo(centerX, document.bottom())
-    cb.stroke()
-    cb.moveTo(centerX, diamondTop)
-    cb.lineTo(centerX - (diamondWidth / 2) as float, diamondTop - (diamondHeight / 2) as float)
-    cb.lineTo(centerX, diamondTop - diamondHeight as float)
-    cb.lineTo(centerX + (diamondWidth / 2) as float, diamondTop - (diamondHeight / 2) as float)
-    cb.lineTo(centerX, diamondTop)
-    cb.colorFill = Color.GRAY
-    cb.fill()
+  writer.directContent.with {
+    lineWidth = 5
+    colorStroke = Color.GRAY
+    moveTo(centerX, document.top())
+    lineTo(centerX, document.bottom())
+    stroke()
+    moveTo(centerX, diamondTop)
+    lineTo(centerX - (diamondWidth / 2) as float, diamondTop - (diamondHeight / 2) as float)
+    lineTo(centerX, diamondTop - diamondHeight as float)
+    lineTo(centerX + (diamondWidth / 2) as float, diamondTop - (diamondHeight / 2) as float)
+    lineTo(centerX, diamondTop)
+    colorFill = Color.GRAY
+    fill()
   }
 }) {
   multiColumnText(alignment: Element.ALIGN_JUSTIFIED, init: {mct ->

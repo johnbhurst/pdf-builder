@@ -9,10 +9,10 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(PageSize.A4) {
   new File(INPUT).eachLine {line ->
     paragraph("    $line", alignment: Element.ALIGN_JUSTIFIED)
     def pos = writer.getVerticalPosition(false)
-    writer.withDirectContent {cb ->
-      cb.moveTo(0, pos)
-      cb.lineTo(PageSize.A4.width, pos)
-      cb.stroke()
+    writer.directContent.with {
+      moveTo(0, pos)
+      lineTo(PageSize.A4.width, pos)
+      stroke()
     }
     if (pos < 90) {
       document.newPage()

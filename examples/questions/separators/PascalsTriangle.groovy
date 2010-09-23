@@ -18,7 +18,7 @@ new PDFBuilder(new FileOutputStream(RESULT)).document(pageSize: PageSize.A4.rota
     paragraph("") {
       chunk(vp)
       for (j in 0..i) {
-        chunk("$pascal[i][j]")
+        chunk("${pascal[i][j]}")
         chunk(vp)
       }
     }

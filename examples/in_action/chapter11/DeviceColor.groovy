@@ -3,7 +3,6 @@ import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 import java.awt.Color
 import com.lowagie.text.pdf.CMYKColor
 import com.lowagie.text.pdf.GrayColor
-import com.lowagie.text.pdf.PdfContentByte
 
 new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/DeviceColor.pdf")).document() {
   writer.directContent.with {

@@ -1,10 +1,8 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
 import com.lowagie.text.Document
-import com.lowagie.text.pdf.PdfWriter
-import com.lowagie.text.pdf.PdfPTable
-import org.codehaus.groovy.runtime.DefaultGroovyMethods
 import com.lowagie.text.Rectangle
+import com.lowagie.text.pdf.PdfWriter
 import org.codehaus.groovy.runtime.InvokerHelper
 
 class DocumentFactory extends AbstractFactory {
@@ -21,14 +19,14 @@ class DocumentFactory extends AbstractFactory {
   Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
     def ctorArgs = PDFBuilder.argsFromAttributes(ctorArgTypes, attributes, value)
     document = InvokerHelper.invokeConstructorOf(Document, ctorArgs)
-    DefaultGroovyMethods.mixin(document.metaClass, PdfCategory)
+    document.metaClass.mixin(PdfCategory)
     pageEvent.properties.each {key, val ->
       if (attributes.containsKey(key)) {
         pageEvent[key] = attributes.remove(key)
       }
     }
     writer = PdfWriter.getInstance(document, builder.outputStream)
-    DefaultGroovyMethods.mixin(writer.metaClass, PdfCategory)
+    writer.metaClass.mixin(PdfCategory)
     writer.setPageEvent(pageEvent)
     if (attributes.containsKey("initWriter")) {
       Closure initWriter = attributes.remove("initWriter")

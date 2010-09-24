@@ -5,7 +5,6 @@ import com.lowagie.text.pdf.PdfWriter
 import com.lowagie.text.Document
 import com.lowagie.text.Paragraph
 import com.lowagie.text.Rectangle
-import org.codehaus.groovy.runtime.DefaultGroovyMethods
 
 class ClosurePdfPageEvent implements PdfPageEvent {
 
@@ -22,8 +21,8 @@ class ClosurePdfPageEvent implements PdfPageEvent {
   Closure onGenericTag
 
   void onOpenDocument(PdfWriter writer, Document document) {
-    DefaultGroovyMethods.mixin(writer.directContent.metaClass, PdfCategory)
-    DefaultGroovyMethods.mixin(writer.directContentUnder.metaClass, PdfCategory)
+    writer.directContent.metaClass.mixin(PdfCategory)
+    writer.directContentUnder.metaClass.mixin(PdfCategory)
     if (onOpenDocument) {
       onOpenDocument.call(writer, document)
     }

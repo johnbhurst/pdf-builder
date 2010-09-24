@@ -4,7 +4,6 @@ import java.awt.Graphics2D
 import com.lowagie.text.pdf.FontMapper
 import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfTemplate
-import org.codehaus.groovy.runtime.DefaultGroovyMethods
 import com.lowagie.text.pdf.PatternColor
 import com.lowagie.text.pdf.PdfPatternPainter
 import java.awt.Color
@@ -51,7 +50,7 @@ class PdfCategory {
 
   private static createTemplate(PdfContentByte cb, float width, float height, Closure closure) {
     PdfTemplate template = cb.createTemplate(width, height)
-    DefaultGroovyMethods.mixin(template.metaClass, PdfCategory)
+    template.metaClass.mixin(PdfCategory)
     closure.call(template)
     template
   } 
@@ -115,10 +114,10 @@ class PdfCategory {
   }
 
   private static PatternColor makePatternColor(PdfPatternPainter painter, Closure closure) {
-    DefaultGroovyMethods.mixin(painter.metaClass, PdfCategory)
+    painter.metaClass.mixin(PdfCategory)
     closure.call(painter)
     PatternColor result = new PatternColor(painter)
-    DefaultGroovyMethods.mixin(result.metaClass, PdfCategory)
+    result.metaClass.mixin(PdfCategory)
     result
   }
 

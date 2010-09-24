@@ -1,12 +1,12 @@
 package nz.co.skepticalhumorist.pdfbuilder
 
+import java.awt.Color
 import java.awt.Graphics2D
 import com.lowagie.text.pdf.FontMapper
-import com.lowagie.text.pdf.PdfContentByte
-import com.lowagie.text.pdf.PdfTemplate
 import com.lowagie.text.pdf.PatternColor
+import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfPatternPainter
-import java.awt.Color
+import com.lowagie.text.pdf.PdfTemplate
 
 class PdfCategory {
 

@@ -5,6 +5,9 @@ import com.lowagie.text.pdf.FontMapper
 import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfTemplate
 import org.codehaus.groovy.runtime.DefaultGroovyMethods
+import com.lowagie.text.pdf.PatternColor
+import com.lowagie.text.pdf.PdfPatternPainter
+import java.awt.Color
 
 class PdfCategory {
 
@@ -89,6 +92,34 @@ class PdfCategory {
     finally {
       graphics.dispose()
     }
+  }
+
+  static PatternColor createPatternColor(PdfContentByte cb, float width, float height, Closure closure) {
+    PdfPatternPainter painter = cb.createPattern(width, height)
+    makePatternColor(painter, closure)
+  }
+
+  static PatternColor createPatternColor(PdfContentByte cb, float width, float height, Color color, Closure closure) {
+    PdfPatternPainter painter = cb.createPattern(width, height, color)
+    makePatternColor(painter, closure)
+  }
+
+  static PatternColor createPatternColor(PdfContentByte cb, float width, float height, float xstep, float ystep, Closure closure) {
+    PdfPatternPainter painter = cb.createPattern(width, height, xstep, ystep)
+    makePatternColor(painter, closure)
+  }
+
+  static PatternColor createPatternColor(PdfContentByte cb, float width, float height, float xstep, float ystep, Color color, Closure closure) {
+    PdfPatternPainter painter = cb.createPattern(width, height, xstep, ystep, color)
+    makePatternColor(painter, closure)
+  }
+
+  private static PatternColor makePatternColor(PdfPatternPainter painter, Closure closure) {
+    DefaultGroovyMethods.mixin(painter.metaClass, PdfCategory)
+    closure.call(painter)
+    PatternColor result = new PatternColor(painter)
+    DefaultGroovyMethods.mixin(result.metaClass, PdfCategory)
+    result
   }
 
 }

@@ -2,42 +2,39 @@
 import nz.co.skepticalhumorist.pdfbuilder.PDFBuilder
 import java.awt.Color
 import com.lowagie.text.Image
+import com.lowagie.text.pdf.PatternColor
 import com.lowagie.text.pdf.PdfContentByte
 import com.lowagie.text.pdf.PdfPatternPainter
-import com.lowagie.text.pdf.PatternColor
 
 String resourcePath(String path) {
   System.properties["itext.examples.home"] + "/resources/in_action/chapter10/" + path
 }
 
-new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Patterns.pdf")).document() {
+// Alternative version uses createPatternColor() mixins and Closures to paint patterns.
+new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Patterns2.pdf")).document() {
   PdfContentByte cb = writer.directContent
-  PdfPatternPainter square = cb.createPattern(15, 15)
-  square.colorFill = new Color(0xFF, 0xFF, 0x00)
-  square.colorStroke = new Color(0xFF, 0x00, 0x00)
-  square.rectangle(5, 5, 5, 5)
-  square.fillStroke()
-  PatternColor squares = new PatternColor(square)
-
-  PdfPatternPainter ellipse = cb.createPattern(15, 10, 20, 25)
-  ellipse.colorFill = new Color(0xFF, 0xFF, 0x00)
-  ellipse.colorStroke = new Color(0xFF, 0x00, 0x00)
-  ellipse.ellipse(2f, 2f, 13f, 8f)
-  ellipse.fillStroke()
-  PatternColor ellipses = new PatternColor(ellipse)
-
-  PdfPatternPainter circle = cb.createPattern(15, 15, 10, 20, Color.blue)
-  circle.circle(7.5f, 7.5f, 2.5f)
-  circle.fill()
-  PatternColor circles = new PatternColor(circle)
-
-  PdfPatternPainter line = cb.createPattern(5, 10, null)
-  line.lineWidth = 1
-  line.moveTo(3, -1)
-  line.lineTo(3, 11)
-  line.stroke()
-  PatternColor lines = new PatternColor(line)
-
+  PatternColor squares = cb.createPatternColor(15, 15) {square ->
+    square.colorFill = new Color(0xFF, 0xFF, 0x00)
+    square.colorStroke = new Color(0xFF, 0x00, 0x00)
+    square.rectangle(5, 5, 5, 5)
+    square.fillStroke()
+  }
+  PatternColor ellipses = cb.createPatternColor(15, 10, 20, 25) {ellipse ->
+    ellipse.colorFill = new Color(0xFF, 0xFF, 0x00)
+    ellipse.colorStroke = new Color(0xFF, 0x00, 0x00)
+    ellipse.ellipse(2f, 2f, 13f, 8f)
+    ellipse.fillStroke()
+  }
+  PatternColor circles = cb.createPatternColor(15, 15, 10, 20, Color.blue) {circle ->
+    circle.circle(7.5f, 7.5f, 2.5f)
+    circle.fill()
+  }
+  PatternColor lines = cb.createPatternColor(5, 10, null) {line ->
+    line.lineWidth = 1
+    line.moveTo(3, -1)
+    line.lineTo(3, 11)
+    line.stroke()
+  }
   Image img = Image.getInstance(resourcePath("iTextLogo.gif"))
   PdfPatternPainter img_pattern = cb.createPattern(img.scaledWidth, img.scaledHeight, img.scaledWidth, img.scaledHeight)
   img_pattern.addImage(img, img.scaledWidth, 0f, 0f, img.scaledHeight, 0f, 0f)
@@ -55,23 +52,23 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Patterns
   cb.setColorFill(lines)
   cb.rectangle(360, 716, 72, 72)
   cb.fillStroke()
-  cb.setPatternFill(circle, Color.red)
+  cb.setPatternFill(circles.painter, Color.red)
   cb.rectangle(470, 716, 72, 72)
   cb.fillStroke()
 
-  cb.setPatternFill(line, Color.red)
+  cb.setPatternFill(lines.painter, Color.red)
   cb.rectangle(36, 608, 72, 72)
   cb.fillStroke()
-  cb.setPatternFill(line, Color.green)
+  cb.setPatternFill(lines.painter, Color.green)
   cb.rectangle(144, 608, 72, 72)
   cb.fillStroke()
-  cb.setPatternFill(line, Color.blue)
+  cb.setPatternFill(lines.painter, Color.blue)
   cb.rectangle(252, 608, 72, 72)
   cb.fillStroke()
-  cb.setPatternFill(line, Color.yellow)
+  cb.setPatternFill(lines.painter, Color.yellow)
   cb.rectangle(360, 608, 72, 72)
   cb.fillStroke()
-  cb.setPatternFill(line, Color.black)
+  cb.setPatternFill(lines.painter, Color.black)
   cb.rectangle(470, 608, 72, 72)
   cb.fillStroke()
 

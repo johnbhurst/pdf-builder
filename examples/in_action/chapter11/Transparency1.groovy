@@ -12,28 +12,93 @@ import com.lowagie.text.pdf.PdfPatternPainter
 import com.lowagie.text.pdf.PdfShading
 import com.lowagie.text.pdf.PdfShadingPattern
 import com.lowagie.text.pdf.PdfSpotColor
+import com.lowagie.text.Element
+import com.lowagie.text.pdf.PdfTransparencyGroup
+import com.lowagie.text.pdf.PdfTemplate
+import com.lowagie.text.pdf.PdfGState
+import com.lowagie.text.pdf.ColumnText
+import com.lowagie.text.Phrase
 
-String resourcePath(String path) {
-  System.properties["itext.examples.home"] + "/resources/in_action/chapter05/" + path
-}
+new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Transparency1.pdf")).document() {
+  def pictureBackdrop = {float x, float y, PdfContentByte cb ->
+    cb.colorStroke = Color.black
+    cb.colorFill = Color.gray
+    cb.rectangle(x, y, 100, 200)
+    cb.fill()
+    cb.lineWidth = 2
+    cb.rectangle(x, y, 200, 200)
+    cb.stroke()
+  }
 
-new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/ColoredParagraphs.pdf")).document() {
-  PdfContentByte cb = writer.directContent
+  def pictureCircles = {float x, float y, PdfContentByte cb ->
+    cb.colorFill = Color.red
+    cb.circle(x + 70, y + 70, 50)
+    cb.fill()
+    cb.colorFill = Color.yellow
+    cb.circle(x + 100, y + 130, 50)
+    cb.fill()
+    cb.colorFill = Color.blue
+    cb.circle(x + 130, y + 70, 50)
+    cb.fill()
+	}
 
-  PdfSpotColor psc_cmyk = new PdfSpotColor("iTextSpotColorCMYK", 1, new CMYKColor(0.3f, 0.9f, 0.3f, 0.1f))
-  SpotColor sc_cmyk = new SpotColor(psc_cmyk, 0.25f)
+  float gap = (document.pageSize.width - 400) / 3 as float
 
-  Image img = Image.getInstance("resources/in_action/chapter05/foxdog.jpg")
-  PdfPatternPainter img_pattern = cb.createPattern(img.scaledWidth, img.scaledHeight, img.scaledWidth, img.scaledHeight)
-  img_pattern.addImage(img, img.getScaledWidth(), 0f, 0f, img.getScaledHeight(), 0f, 0f)
-  img_pattern.setPatternMatrix(1f, 0f, 0f, 1f, 60f, 60f)
-  PatternColor img_color = new PatternColor(img_pattern)
+  writer.directContent
+  pictureBackdrop(gap, 500)
+  pictureBackdrop(200 + 2 * gap, 500, cb)
+  pictureBackdrop(gap, 500 - 200 - gap, cb)
+  pictureBackdrop(200 + 2 * gap, 500 - 200 - gap, cb)
 
-  PdfShading axial = PdfShading.simpleAxial(writer, 36, 716, 396, 788, Color.orange, Color.blue)
-  PdfShadingPattern axialPattern = new PdfShadingPattern(axial)
-  ShadingColor axialColor = new ShadingColor(axialPattern)
+  pictureCircles(gap, 500, cb)
+  writer.directContent.withState {cb ->
+    PdfGState gs1 = new PdfGState()
+    gs1.setFillOpacity(0.5f)
+    cb.setGState(gs1)
+    pictureCircles(200 + 2 * gap, 500, cb)
+  }
 
-  paragraph(string: "This is a paragraph painted using a SpotColor", font: new Font(Font.HELVETICA, 24, Font.BOLD, sc_cmyk))
-  paragraph(string: "This is a paragraph painted using an image pattern", font: new Font(Font.HELVETICA, 24, Font.BOLD, img_color))
-  paragraph(string: "This is a paragraph painted using a shading pattern", font: new Font(Font.HELVETICA, 24, Font.BOLD, axialColor))
+  PdfTemplate tp = cb.createTemplate(200, 200)
+  cb.saveState()
+  pictureCircles(0, 0, tp)
+  PdfTransparencyGroup group = new PdfTransparencyGroup()
+  tp.setGroup(group)
+  cb.setGState(gs1)
+  cb.addTemplate(tp, gap, 500 - 200 - gap)
+  cb.restoreState()
+
+  tp = cb.createTemplate(200, 200)
+  cb.saveState()
+  PdfGState gs2 = new PdfGState()
+  gs2.setFillOpacity(0.5f)
+  gs2.setBlendMode(PdfGState.BM_SOFTLIGHT)
+  tp.setGState(gs2)
+  pictureCircles(0, 0, tp)
+  tp.setGroup(group)
+  cb.addTemplate(tp, 200 + 2 * gap, 500 - 200 - gap)
+  cb.restoreState()
+
+  cb.resetRGBColorFill()
+  ColumnText ct = new ColumnText(cb)
+  Phrase ph = new Phrase("Ungrouped objects\nObject opacity = 1.0")
+  ct.setSimpleColumn(ph, gap, 0, gap + 200, 500, 18,
+      Element.ALIGN_CENTER)
+  ct.go()
+
+  ph = new Phrase("Ungrouped objects\nObject opacity = 0.5")
+  ct.setSimpleColumn(ph, 200 + 2 * gap, 0, 200 + 2 * gap + 200, 500,
+      18, Element.ALIGN_CENTER)
+  ct.go()
+
+  ph = new Phrase(
+      "Transparency group\nObject opacity = 1.0\nGroup opacity = 0.5\nBlend mode = Normal")
+  ct.setSimpleColumn(ph, gap, 0, gap + 200, 500 - 200 - gap, 18,
+      Element.ALIGN_CENTER)
+  ct.go()
+
+  ph = new Phrase(
+      "Transparency group\nObject opacity = 0.5\nGroup opacity = 1.0\nBlend mode = SoftLight")
+  ct.setSimpleColumn(ph, 200 + 2 * gap, 0, 200 + 2 * gap + 200,
+      500 - 200 - gap, 18, Element.ALIGN_CENTER)
+  ct.go()
 }

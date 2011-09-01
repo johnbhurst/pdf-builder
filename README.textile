@@ -32,4 +32,33 @@ new PDFBuilder(new FileOutputStream("Hello.pdf")).document() {
 </pre>
 
 
+h2. Running tests
+
+(TBD: Move to another page.)
+
+To run all of the tests, you need some prerequisites:
+  * iText examples (for data and images)
+  * Windows fonts
+
+Get the iText examples from the SourceForge SVN repository, using a command like this:
+<pre>
+svn co  https://itext.svn.sourceforge.net/svnroot/itext/examples itext-examples
+</pre>
+
+If you are running Windows, you should have the necessary fonts.
+Otherwise, you need to get these files and place them in a directory on your system:
+  * arbli___.ttf
+  * arialbd.ttf
+  * arialbi.ttf
+  * ariali.ttf
+  * arial.ttf
+  * comicbd.ttf
+  * comic.ttf
+  * msgothic.ttc
+
+Finally, you need to configure these locations in ~/.gradle/gradle.properties, e.g.:
+<pre>
+pdfBuilderITextExamplesHome   = /home/user/pdf-builder/itext-examples
+pdfBuilderWindowsFontLocation = /home/user/pdf-builder/windows-fonts
+</pre>
 

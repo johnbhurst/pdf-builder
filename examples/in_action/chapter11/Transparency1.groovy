@@ -20,6 +20,11 @@ import com.lowagie.text.pdf.ColumnText
 import com.lowagie.text.Phrase
 
 new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Transparency1.pdf")).document() {
+
+  // **
+  // ** This test/example script is not finished yet. Still working on this part of the API.
+  // **
+
   def pictureBackdrop = {float x, float y, PdfContentByte cb ->
     cb.colorStroke = Color.black
     cb.colorFill = Color.gray
@@ -44,27 +49,27 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Transpar
 
   float gap = (document.pageSize.width - 400) / 3 as float
 
-  writer.directContent
-  pictureBackdrop(gap, 500)
-  pictureBackdrop(200 + 2 * gap, 500, cb)
-  pictureBackdrop(gap, 500 - 200 - gap, cb)
-  pictureBackdrop(200 + 2 * gap, 500 - 200 - gap, cb)
+  def cb = writer.directContent
+  //pictureBackdrop(gap, 500, cb)
+  //pictureBackdrop(200 + 2 * gap, 500, cb)
+  //pictureBackdrop(gap, 500 - 200 - gap, cb)
+  //pictureBackdrop(200 + 2 * gap, 500 - 200 - gap, cb)
 
-  pictureCircles(gap, 500, cb)
-  writer.directContent.withState {cb ->
+  //pictureCircles(gap, 500, cb)
+  writer.directContent.withState {cb1 ->
     PdfGState gs1 = new PdfGState()
     gs1.setFillOpacity(0.5f)
     cb.setGState(gs1)
-    pictureCircles(200 + 2 * gap, 500, cb)
+    //pictureCircles(200 + 2 * gap, 500, cb)
   }
 
   PdfTemplate tp = cb.createTemplate(200, 200)
   cb.saveState()
-  pictureCircles(0, 0, tp)
+  //pictureCircles(0, 0, tp)
   PdfTransparencyGroup group = new PdfTransparencyGroup()
   tp.setGroup(group)
-  cb.setGState(gs1)
-  cb.addTemplate(tp, gap, 500 - 200 - gap)
+  //cb.setGState(gs1)
+  cb.addTemplate(tp, gap, 500 - 200 - gap as float)
   cb.restoreState()
 
   tp = cb.createTemplate(200, 200)
@@ -73,32 +78,28 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/Transpar
   gs2.setFillOpacity(0.5f)
   gs2.setBlendMode(PdfGState.BM_SOFTLIGHT)
   tp.setGState(gs2)
-  pictureCircles(0, 0, tp)
+  //pictureCircles(0, 0, tp)
   tp.setGroup(group)
-  cb.addTemplate(tp, 200 + 2 * gap, 500 - 200 - gap)
+  cb.addTemplate(tp, 200 + 2 * gap as float, 500 - 200 - gap as float)
   cb.restoreState()
 
   cb.resetRGBColorFill()
   ColumnText ct = new ColumnText(cb)
   Phrase ph = new Phrase("Ungrouped objects\nObject opacity = 1.0")
-  ct.setSimpleColumn(ph, gap, 0, gap + 200, 500, 18,
-      Element.ALIGN_CENTER)
+  ct.setSimpleColumn(ph, gap, 0, gap + 200 as float, 500, 18, Element.ALIGN_CENTER)
   ct.go()
 
   ph = new Phrase("Ungrouped objects\nObject opacity = 0.5")
-  ct.setSimpleColumn(ph, 200 + 2 * gap, 0, 200 + 2 * gap + 200, 500,
-      18, Element.ALIGN_CENTER)
+  ct.setSimpleColumn(ph, 200 + 2 * gap as float, 0, 200 + 2 * gap + 200 as float, 500, 18, Element.ALIGN_CENTER)
   ct.go()
 
   ph = new Phrase(
       "Transparency group\nObject opacity = 1.0\nGroup opacity = 0.5\nBlend mode = Normal")
-  ct.setSimpleColumn(ph, gap, 0, gap + 200, 500 - 200 - gap, 18,
-      Element.ALIGN_CENTER)
+  ct.setSimpleColumn(ph, gap, 0, gap + 200 as float, 500 - 200 - gap as float, 18, Element.ALIGN_CENTER)
   ct.go()
 
   ph = new Phrase(
       "Transparency group\nObject opacity = 0.5\nGroup opacity = 1.0\nBlend mode = SoftLight")
-  ct.setSimpleColumn(ph, 200 + 2 * gap, 0, 200 + 2 * gap + 200,
-      500 - 200 - gap, 18, Element.ALIGN_CENTER)
+  ct.setSimpleColumn(ph, 200 + 2 * gap as float, 0, 200 + 2 * gap + 200 as float, 500 - 200 - gap as float, 18, Element.ALIGN_CENTER)
   ct.go()
 }

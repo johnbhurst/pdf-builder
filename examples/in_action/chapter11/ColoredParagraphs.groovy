@@ -23,7 +23,7 @@ new PDFBuilder(new FileOutputStream("build/examples/in_action/chapter11/ColoredP
   PdfSpotColor psc_cmyk = new PdfSpotColor("iTextSpotColorCMYK", 1, new CMYKColor(0.3f, 0.9f, 0.3f, 0.1f))
   SpotColor sc_cmyk = new SpotColor(psc_cmyk, 0.25f)
 
-  Image img = Image.getInstance("resources/in_action/chapter05/foxdog.jpg")
+  Image img = Image.getInstance(resourcePath("foxdog.jpg"))
   PdfPatternPainter img_pattern = cb.createPattern(img.scaledWidth, img.scaledHeight, img.scaledWidth, img.scaledHeight)
   img_pattern.addImage(img, img.getScaledWidth(), 0f, 0f, img.getScaledHeight(), 0f, 0f)
   img_pattern.setPatternMatrix(1f, 0f, 0f, 1f, 60f, 60f)

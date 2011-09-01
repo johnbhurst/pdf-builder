@@ -18,8 +18,7 @@ dependencies {
   testCompile group: "junit", name: "junit", version: "4.8.1"
   testCompile group: "net.sf.jpdfunit", name: "jpdfunit", version: "1.1"
   testRuntime group: "pdfbox", name: "pdfbox", version: "0.7.3"  // why is this not included by jpdfunit???
-  testRuntime group: "jfree", name: "jfreechart", version: "1.0.13"
-  testRuntime group: "jfree", name: "jcommon", version: "1.0.16" // why is this not included by jfreechart???
+  testRuntime group: "jfree", name: "jfreechart", version: "1.0.12"
   testRuntime files("lib/itext-hyph-xml.jar")
   testRuntime files("lib/iTextAsian.jar")
 }

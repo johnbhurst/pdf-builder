@@ -1,19 +1,19 @@
 
-buildscript {
-  apply {
-    apply from: 'http://skepticalhumorist.co.nz/artifactory/jfrog-gradle/org/jfrog/buildinfo/build-info-extractor-gradle/1.0.1/artifactoryplugin-1.0.1.gradle'
-  }
-  repositories {
-    mavenRepo urls: "http://gradle.artifactoryonline.com/gradle/plugins"
-  }
-  dependencies {
-    classpath "org.gradle.plugins:gradle-idea-plugin:0.2"
-  }
-}
+//buildscript {
+//  apply {
+//    apply from: 'http://skepticalhumorist.co.nz/artifactory/jfrog-gradle/org/jfrog/buildinfo/build-info-extractor-gradle/1.0.1/artifactoryplugin-1.0.1.gradle'
+//  }
+//  repositories {
+//    mavenRepo urls: "http://gradle.artifactoryonline.com/gradle/plugins"
+//  }
+//  dependencies {
+//    classpath "org.gradle.plugins:gradle-idea-plugin:0.2"
+//  }
+//}
 
 apply plugin: "groovy"
 apply plugin: "maven"
-apply plugin: "org.gradle.idea"
+apply plugin: "idea"
 
 group = "nz.co.skepticalhumorist"
 version = "00.00.07"

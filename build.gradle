@@ -10,7 +10,6 @@ status = 'release'
 repositories {
   mavenCentral()
   mavenCentral(url: "http://jpdfunit.sourceforge.net/repo")
-  mavenCentral name: "jboss", urls: "http://repository.jboss.com/maven2/"
 }
 
 dependencies {

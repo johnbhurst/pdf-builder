@@ -7,6 +7,10 @@ group = "nz.co.skepticalhumorist"
 version = "00.00.07"
 status = 'release'
 
+wrapper {
+  gradleVersion = "2.0"
+}
+
 repositories {
   mavenCentral()
   mavenCentral(url: "http://jpdfunit.sourceforge.net/repo")

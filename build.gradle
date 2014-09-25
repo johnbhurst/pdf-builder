@@ -16,13 +16,22 @@ repositories {
   mavenCentral(url: "http://jpdfunit.sourceforge.net/repo")
 }
 
+ext {
+  groovyVersion = "1.8.0"
+  itextVersion = "2.1.7"
+  junitVersion = "4.8.1"
+  jpdfUnitVersion = "1.1"
+  pdfBoxVersion = "0.7.3"
+  jfreeChartVersion = "1.0.12"
+}
+
 dependencies {
-  compile group: "org.codehaus.groovy", name: "groovy", version: "1.8.0"
-  compile group: "com.lowagie", name: "itext", version: "2.1.7"
-  testCompile group: "junit", name: "junit", version: "4.8.1"
-  testCompile group: "net.sf.jpdfunit", name: "jpdfunit", version: "1.1"
-  testRuntime group: "pdfbox", name: "pdfbox", version: "0.7.3"  // why is this not included by jpdfunit???
-  testRuntime group: "jfree", name: "jfreechart", version: "1.0.12"
+  compile "org.codehaus.groovy:groovy:$groovyVersion"
+  compile "com.lowagie:itext:$itextVersion"
+  testCompile "junit:junit:$junitVersion"
+  testCompile "net.sf.jpdfunit:jpdfunit:$jpdfUnitVersion"
+  testRuntime "pdfbox:pdfbox:$pdfBoxVersion"  // why is this not included by jpdfunit???
+  testRuntime "jfree:jfreechart:$jfreeChartVersion"
   testRuntime files("lib/itext-hyph-xml.jar")
   testRuntime files("lib/iTextAsian.jar")
 }

@@ -8,7 +8,8 @@ version = "00.00.07"
 status = 'release'
 
 repositories {
-  mavenCentral name: "jpdfunit-repo", urls: "http://jpdfunit.sourceforge.net/repo"
+  mavenCentral()
+  mavenCentral(url: "http://jpdfunit.sourceforge.net/repo")
   mavenCentral name: "jboss", urls: "http://repository.jboss.com/maven2/"
 }
 

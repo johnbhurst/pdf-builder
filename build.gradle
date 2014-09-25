@@ -17,7 +17,7 @@ repositories {
 }
 
 ext {
-  groovyVersion = "1.8.0"
+  groovyVersion = "2.3.6"
   itextVersion = "2.1.7"
   junitVersion = "4.8.1"
   jpdfUnitVersion = "1.1"

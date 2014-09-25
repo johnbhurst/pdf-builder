@@ -2,6 +2,7 @@
 *.ipr
 *.iml
 *.iws
+*.sublime-*
 build
 repo
 itext-examples

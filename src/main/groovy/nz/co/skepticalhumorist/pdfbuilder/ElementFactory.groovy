@@ -4,7 +4,6 @@ import com.lowagie.text.pdf.MultiColumnText
 import com.lowagie.text.pdf.PdfPCell
 import com.lowagie.text.pdf.PdfPTable
 import org.codehaus.groovy.runtime.InvokerHelper
-import com.lowagie.text.Section
 
 class ElementFactory extends AbstractFactory {
 

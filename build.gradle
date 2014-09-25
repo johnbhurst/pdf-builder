@@ -23,18 +23,6 @@ dependencies {
   testRuntime files("lib/iTextAsian.jar")
 }
 
-uploadDefault {
-  uploadDescriptor = true
-  repositories {
-    add(Class.forName("org.apache.ivy.plugins.resolver.FileSystemResolver").newInstance()) {
-      name = 'repo'
-      addIvyPattern "$projectDir/repo/[organisation]/[module]/[revision]/ivy.xml"
-      addArtifactPattern "$projectDir/repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"
-      checkmodified = true
-    }
-  }
-}
-
 void runExamples(String path) {
   new File("build/$path").mkdirs()
   def gse = new GroovyScriptEngine([path] as String[])

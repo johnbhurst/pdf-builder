@@ -18,11 +18,20 @@ import org.junit.Test
 
 class ExamplesTest {
 
-  private void runExamples(String path) {
+  private static void runExamples(String path) {
     new File("build/$path").mkdirs()
-    def gse = new GroovyScriptEngine(["build/$path"] as String[])
+    def engine = new GroovyScriptEngine(["build/$path"] as String[])
     new File(path).eachFileMatch(~/^.*\.groovy$/) {File file ->
-      gse.run(file.name, new Binding())
+      tryRunExample(engine, file)
+    }
+  }
+
+  private static void tryRunExample(GroovyScriptEngine engine, File file) {
+    try {
+      engine.run(file.name, new Binding())
+    }
+    catch (Throwable ex) {
+      throw new RuntimeException("Error running example [${file.name}]", ex)
     }
   }
 
